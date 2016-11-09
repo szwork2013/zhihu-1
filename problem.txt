@@ -1,0 +1,2 @@
+加密模块 salt invalid
+res.send(), res.json();区别

@@ -1,0 +1,110 @@
+.question-title .list-group-item {
+    border: 0px;
+}
+
+#question-title .list-group-item .btn-default {
+    border-radius: 30px;
+}
+
+.question-title .btn-group .btn-default:first-child {
+    margin-left: 0px;
+}
+
+.question-title li:last-child {
+    border-top: 1px solid #EEE;
+    border-bottom: 1px solid #EEE;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.question-title .btn-group .btn-default:hover {
+    background: #259;
+    color: #fff;
+}
+
+.question-title .list-group-item .btn-default {
+    border-radius: 20px;
+    margin-left: 5px;
+    padding: 3px 10px;
+    font-size: 13px;
+    line-height: 1.7;
+    word-wrap: break-word;
+    color: #259;
+    background: #eff6fa;
+    border: 0px;
+}
+
+.question-title .title-detail {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.7;
+    word-wrap: break-word;
+    color: #222;
+}
+
+.question-content {
+    font-size: 13px;
+    line-height: 1.7;
+    word-wrap: break-word;
+    color: #222;
+}
+
+.answer-number {
+    padding: 15px 15px;
+}
+
+.remove-padding {
+    padding: 0px;
+}
+
+.answer-vote button {
+    padding: 2px 4px;
+}
+
+.answer-vote ul {
+    border: 0px;
+}
+
+.user-answer ul {
+    border: 0px;
+}
+
+.user-answer ul li {
+    border: 0px;
+}
+
+.user-answer ul li button {
+    border: 0px;
+}
+
+.answer-content {
+    padding: 0px;
+}
+
+.answer-content .panel {}
+
+.answer-content .panel-footer a {
+    color: #999;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 1.7;
+    word-wrap: break-word;
+}
+
+.answer-content .panel-footer a:hover{
+	    color: #698ebf;
+	    text-decoration: underline;
+}
+.question-relation{
+	border: 0px;
+}
+
+.question-relation li{
+	list-style: none;
+	border: 0px;
+}
+.question-relation a:hover{
+	text-decoration: none;
+}

@@ -1,0 +1,78 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+.navbar-default {
+    background-color: #0769CC;
+    border: 0px;
+    border-radius: 0px;
+}
+
+#brand {
+    padding-top: 10px;
+    margin-left: 0px;
+}
+
+.btn-custom {
+    background-color: #0E78E8;
+    border: 0px;
+}
+
+#search-input .btn-custom:hover {
+    background-color: #0E78E8;
+}
+
+#category-list {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+#category-list ul {
+    margin-bottom: 0px;
+    padding-left: 10px;
+}
+
+#category-list ul li {
+    padding-left: 5px;
+}
+
+#category-list ul li a {
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+#category-list ul li a:hover {
+    text-decoration: none;
+}
+
+.btn-question {
+    background-color: #0E78E6;
+    border: 0px;
+}
+
+.btn-question:hover {
+    background-color: #0E78E6;
+}
+
+#user-info {
+    padding-top: 15px;
+}
+
+#user-info ul li {}
+
+#user-info ul li a {
+    color: #fff;
+    font-size: 16px;
+}
+
+#user-info ul li a:hover {
+    text-decoration: none;
+}
+
+.white {
+    color: white;
+}

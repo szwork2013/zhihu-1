@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="一个真实的网络问答社区，帮助你寻找答案，分享知识。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>知乎 - 与世界分享你的知识、经验和见解</title>
+    <!-- Bootstrap -->
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/nav.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/question.css">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1 col-md-offset-1">
+                    <div class="navbar-header" style="">
+                        <a class="navbar-brand" href="#" id="brand">
+                            <img src="/images/brand.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3" style="padding-top: 8px;" id="search-input">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜索你感兴趣的类容...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default btn-custom" type="button">
+                                <span class="glyphicon glyphicon-search white"></span>
+                        </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2" id="category-list">
+                    <ul class="list-inline">
+                        <li><a href="#" class="">首页</a></li>
+                        <li><a href="#" class="">话题</a></li>
+                        <li><a href="#" class="">发现</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-1 col-md-offset-1" style="padding-top: 8px;">
+                    <button class="btn btn-info btn-question">提问</button>
+                </div>
+                <div class="col-md-2" id="user-info">
+                    <ul class="list-inline">
+                        <li>
+                            <span class="glyphicon glyphicon-user white"></span>
+                            <a href="#">注册知乎</a>
+                        </li>
+                        <li><a href="#">登录</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1 ">
+                <ul class="list-group question-title" id="question-title">
+                    <li class="list-group-item">
+                        <div class="btn-group" id="question-topic">
+                            <a href="#" class="btn btn-default btn-sm" data-option="1" data-trigger="hover" id="example-popover-1-content">创业公司</a>
+                            <a href="#" class="btn btn-default btn-sm" data-option="2" data-trigger="hover" id="example-popover-2-content">企业文化</a>
+                            <a href="#" class="btn btn-default btn-sm" data-option="3" data-trigger="hover" id="example-popover-3-content">创业公司文化</a>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="lead title-detail">创业公司如何培养自己的企业文化？</span>
+                        <br>
+                        <span class="question-content"><small>当然，这是指的是几十人的小团队</small></span>
+                    </li>
+                    <li class="list-group-item">
+                        <span>47个回答</span>
+                        <div class="dropdown pull-right">
+                            <button class="btn btn-default dropdown-toggle" style="padding: 0px 5px;" data-toggle="dropdown">
+                                默认排序<span class="glyphicon glyphicon-sort"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">按时间排序</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="user-answer">
+                    <ul class="list-group">
+                        <li class="list-group-item remove-padding">
+                            <div class="row">
+                                <div class="col-md-1 answer-vote">
+                                    <div class="btn-group">
+                                        <button class="btn btn-default btn-block">
+                                            <span class="glyphicon glyphicon-chevron-up"></span>
+                                        </button>
+                                        <button class="btn btn-default btn-block">122</button>
+                                        <button class="btn btn-default btn-block">
+                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 answer-content">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <strong>叶滨</strong>,<span>连续创业者</span>
+                                            <div class="pull-right">
+                                                <img src="/images/a61aa599c_s.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            一个理念或者口号要变成企业文化的一部分，先是要让大家知道，然后是让大家相信。而这两点都离不开沟通。 我比较喜欢的沟通方式有几种： 1、员工大会。 我个人一直强调“公开透明”的企业文化，因此我会在每个月的员工大会上公开谈论企业的问题。我见过很多公司的员工，私底下认为公司有一堆问题，但因为种种原因，从不和上级沟通。要解决这个问题，首先是老板要带头讲问题，公开讲。为了让员工敢于公开提尖锐问题，有时我还会采取匿名提问，由管理层公开回答的方式。员工提的问题从五险一金到公司战略都分别作答。 说道这里，我想起开复讲过的google的例子。google美国在周五会有TGIF活动，即Thank God It's Friday，员工聚在一起很轻松的向高层提问。在美国，很多尖锐的问题都会在这时提出，而当他试图在谷歌中国开展类似活动时，发现大家提的问题都很客气，往往是问“我们的新产品什么时候发布啊？”这类的。最后开老师决定还是小范围的吃饭，熟悉了以后再让员工把话说出来。
+                                        </div>
+                                        <div class="panel-footer">
+                                            <a href="#">发布于 2011-04-12</a>
+                                            <a href="#">
+                                                <span class="glyphicon glyphicon-comment"></span>6 条评论
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 remove-padding">
+                <ul class="list-group question-relation">
+                    <li class="list-group-item">
+                        <button class="btn btn-info">关注问题</button>
+                    </li>
+                    <li class="list-group-item">
+                        125人关注
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="">
+                            <img src="/images/990916aeac758985365defda43a36411_s.jpg" alt="..." class="img-rounded">
+                        </a>
+                        <a href="#">
+                            <img src="/images/88bb6c872f4f268243e35e7a55f27121_s.jpg" alt="..." class="img-rounded">
+                        </a>
+                        <a href="#"><img src="/images/eb2e951c2_s.jpg" alt="..." class="img-rounded"></a>
+                        <a href="#"><img src="/images/e03a63601_s.jpg" alt="..." class="img-rounded"></a>
+                        <a href="#"><img src="/images/d8ab48ad20220e3bb2c289f05cb21cd2_s.jpg" alt="..." class="img-rounded"></a>
+                        <a href="#">
+                            <img src="/images/969c958b5_s.jpg" alt="..." class="img-rounded"></a>
+                        <a href="#">
+                            <img src="/images/f1c8f8bd9dade12086914c1224f4935b_s.jpg" alt="..." class="img-rounded">
+                        </a>
+                         <a href="#">
+                            <img src="/images/fd5af76d2716c90d8024e5f68b674cf5_s.jpg" alt="..." class="img-rounded">
+                        </a>
+                         <a href="#">
+                            <img src="/images/v2-b8a36469b785ea53b494fb510e31be53_s.jpg" alt="..." class="img-rounded">
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        相关问题
+                    </li>
+                    <li class="list-group-item">
+                        <a href="">人们对公务员的工作有哪些误解？</a> 160 个回答
+                    </li>
+                     <li class="list-group-item">
+                       <a href=""> 你熟知的领域，外行有哪些误解？</a> 3952 个回答
+                    </li>
+                     <li class="list-group-item">
+                        <a href="">我国国有企业的意义何在？</a> 777 个回答
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="example-popover-1-content" class="hidden">
+        <div>
+            <b>Example popover #1</b> - content
+        </div>
+    </div>
+    <div id="example-popover-1-title" class="hidden">
+        <b>Example popover #1</b> - title
+    </div>
+    <div id="example-popover-2-content" class="hidden">
+        <div>
+            <b>Example popover #2</b> - content
+        </div>
+    </div>
+    <div id="example-popover-2-title" class="hidden">
+        <b>Example popover #2</b> - title
+    </div>
+    <div id="example-popover-3-content" class="hidden">
+        <div>
+            <b>Example popover #3</b> - content
+        </div>
+    </div>
+    <div id="example-popover-3-title" class="hidden">
+        <b>Example popover #3</b> - title
+    </div>
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+
+    $.each($("#question-topic").children("a"), function(index, element) {
+        var _id = $(element).attr("id");
+        console.log(_id);
+        $(element).popover({
+            html: true,
+            placement: "bottom",
+            content: function() {
+                return $("#" + _id).html();
+            },
+            title: function() {
+                return _id;
+            }
+        });
+    });
+
+    /*    $.each( children('#question-topic a'), function(index, element) {
+             console.log(element);
+        });*/
+
+});
+</script>
+
+</html>

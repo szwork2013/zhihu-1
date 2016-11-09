@@ -1,0 +1,199 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.white {
+    color: white;
+}
+
+.panel-custom {
+    border: 0px;
+}
+
+.panel-custom .panel-heading-custom {
+    background-color: #fff;
+}
+
+.panel-custom .panel-body ul li {
+    /*border-top: 0px;*/
+    border-left: 0px;
+    border-right: 0px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.panel-custom .panel-body ul li:first-child {
+    border-top: 0px;
+}
+
+.panel-custom .panel-body ul li:last-child {
+    border-bottom: 0px;
+}
+
+.panel-custom .panel-body ul li a {
+    font-weight: 700;
+    font-size: 14px;
+    cursor: auto;
+    color: #259;
+}
+
+.panel-custom .panel-body ul li a:hover {
+    text-decoration: underline;
+    color: #259;
+}
+
+.content-tabs ul li a {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.7;
+    word-wrap: break-word;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.today-hot ul li {
+    /*border-top: 0px;*/
+    border-left: 0px;
+    border-right: 0px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.today-hot ul li:first-child {
+    border-top: 0px;
+}
+
+.today-hot ul li:last-child {
+    border-bottom: 0px;
+}
+
+.today-hot ul li a {
+    font-weight: 700;
+    font-size: 14px;
+    cursor: auto;
+    color: #259;
+}
+
+.today-hot ul li a:hover {
+    text-decoration: underline;
+    color: #259;
+}
+
+.btn-group-custom button {
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.btn-sm-size {
+    padding: 5px 5px;
+    line-height: normal;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-weight: 500;
+    border: 0px;
+    font-size: 13px;
+}
+
+.btn-group-custom button {
+    border: 0px;
+    background-color: #eff6fa;
+    color: #698ebf;
+}
+
+.btn-group-custom button:hover {
+    background: #698ebf;
+    color: #fff;
+    text-decoration: none;
+}
+
+.show {
+    display: block !important;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.hot-topic span {
+    font-weight: 700;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+}
+
+.hot-topic .panel-default {
+    border: 0px;
+}
+
+.hot-topic .panel-default .panel-heading {
+    border: 0px;
+    background-color: #FFF;
+}
+
+.hot-topic .panel-default .panel-heading a {
+    color: #999999;
+    font-size: 12px;
+}
+
+.hot-topic .panel-default .panel-heading a:hover {
+    color: #698ebf;
+}
+
+.remove-padding {
+    padding: 0px;
+}
+
+.hot-topic .media-body a {
+    font-size: 13px;
+    color: #259;
+    line-height: 1.7;
+    word-wrap: break-word;
+    cursor: auto;
+}
+
+.hot-topic .media-body span {
+    color: #999;
+    font-size: 13px;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+.hot-topic .panel-body ul li {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 1px;
+    border: 0px;
+    border-bottom: 1px solid #ddd;
+}
+
+.zg-bull {
+    padding: 0 3px;
+    color: #BBB;
+    font-family: Arial;
+}
+
+.hot-user ul li {
+    padding-left: 0px;
+    padding-right: 0px;
+    border: 0px;
+}
+
+.hot-user .panel-default {
+    border: 0px;
+}
+
+.hot-user .media-body a {
+    color: #259;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.hot-user .media-body .motto {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #999;
+    word-wrap: normal;
+}
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="一个真实的网络问答社区，帮助你寻找答案，分享知识。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>知乎 - 与世界分享你的知识、经验和见解</title>
+    <!-- Bootstrap -->
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    body {
+        background-color: #F7FAFC;
+    }
+    
+    #loginbox {
+        margin-top: 30px;
+    }
+    
+    #loginbox > div:first-child {
+        padding-bottom: 10px;
+    }
+    
+    .iconmelon {
+        display: block;
+        margin: auto;
+    }
+    
+    #form > div {
+        margin-bottom: 25px;
+    }
+    
+    #form > div:last-child {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .panel {
+        background-color: transparent;
+    }
+    
+    .panel-body {
+        padding-top: 30px;
+        background-color: rgba(2555, 255, 255, .3);
+    }
+    
+    #particles {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        z-index: -2;
+    }
+    
+    .iconmelon,
+    .im {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        display: block;
+        fill: #525151;
+    }
+    
+    .iconmelon:after,
+    .im:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    a {
+        color: #333333;
+    }
+    
+    a:hover {
+        text-decoration: none;
+        color: #337AB7;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="loginbox" class="mainbox col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
+            <div class="row">
+                <div class="iconmelon">
+                    <img src="/images/logo.png">
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">知乎 - 与世界分享你的知识、经验和见解</div>
+                </div>
+                <div class="panel-body">
+                    <form name="form" id="form" class="form-horizontal" method="POST" action="/register">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="username" type="text" class="form-control" name="username" value="" placeholder="姓名">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input id="email" type="text" class="form-control" name="email" value="" placeholder="手机号或邮箱">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="password" type="password" class="form-control" name="password" placeholder="密码">
+                        </div>
+                        <div class="form-group">
+                            <!-- Button -->
+                            <div class="col-sm-12 controls">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <strong>注册</strong>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <label class="pull-right"><a href="/">返回登录</a></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="particles"></div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- 粒子旋转插件 -->
+    <script src="/lib/particleground/jquery.particleground.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#particles').particleground({
+            dotColor: '#EAECED',
+            lineColor: '#F0F3F5'
+        });
+    });
+    </script>
+</body>
+
+</html>

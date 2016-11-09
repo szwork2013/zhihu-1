@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="一个真实的网络问答社区，帮助你寻找答案，分享知识。">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>知乎 - 与世界分享你的知识、经验和见解</title>
+    <!-- Bootstrap -->
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/nav.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/explore.css">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1 col-md-offset-1">
+                    <div class="navbar-header" style="">
+                        <a class="navbar-brand" href="#" id="brand">
+                            <img src="/images/brand.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3" style="padding-top: 8px;" id="search-input">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜索你感兴趣的类容...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default btn-custom" type="button">
+                                <span class="glyphicon glyphicon-search white"></span>
+                        </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2" id="category-list">
+                    <ul class="list-inline">
+                        <li><a href="#" class="">首页</a></li>
+                        <li><a href="#" class="">话题</a></li>
+                        <li><a href="#" class="">发现</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-1 col-md-offset-1" style="padding-top: 8px;">
+                    <button class="btn btn-info btn-question">提问</button>
+                </div>
+                <div class="col-md-2" id="user-info">
+                    <ul class="list-inline">
+                        <li>
+                            <span class="glyphicon glyphicon-user white"></span>
+                            <a href="#">注册知乎</a>
+                        </li>
+                        <li><a href="#">登录</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="panel panel-default panel-custom">
+                            <div class="panel-heading panel-heading-custom">
+                                <span class="glyphicon glyphicon-th-list"></span>
+                                <span>编辑推荐</span>
+                                <a href="#" class="pull-right">更多推荐&gt;&gt;</a>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <div class="media">
+                                            <a class="media-left media-top" href="#">
+                                                <img src="/images/8e875bdcaa8de35571d2d60ce23466f0_l.jpg" alt="#" width="38px" height="38px">
+                                            </a>
+                                            <div class="media-body">
+                                                <a href="#" class="media-heading">如何简单的取得最新球鞋资讯？</a>
+                                                <p><small><strong>阿Nel,</strong>以球鞋为生</small></p>
+                                                <p>前言：这个星期有点忙，东西还是要写，只是可能写短一点。很多人问我如何取得球鞋的资讯，我觉得其实这是很容易的事情，就这一次将此简单的写出来，让大家知道一下也好。 首先，别看中文，看英文。 很多新闻发放出来，国际媒体就会尽快跟进，所以，我一直都…</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#">为什么拆车件很值？这里面的「套路」是怎样的？</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#">乐视哪来的资金支撑其无底洞式的烧钱举动？</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#">2B行业是个无底洞，究竟该怎么做？</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#">商学院的课程会通过哪些方式保持「与时俱进」？</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="content-tabs overflow">
+                            <ul class="nav nav-tabs" role="tablist" id="myTab">
+                                <li role="presentation" class="active"><a href="#today-hot" data-option="today-hot">今日最热</a></li>
+                                <li role="presentation"><a href="#month-hot" data-option="month-hot">本月最热</a></li>
+                            </ul>
+                        </div>
+                        <div class="today-hot overflow" id="today-hot">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <div class="media">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <a class="media-left media-top" href="#">
+                                                    <div class="btn-group btn-group-custom">
+                                                        <button type="button" class="btn btn-info btn-block btn-xs">
+                                                            <span class="glyphicon glyphicon-chevron-up"></span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-info btn-block btn-xs">22</button>
+                                                        <button type="button" class="btn btn-info btn-block">
+                                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                                        </button>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="media-body">
+                                                    <a href="#" class="media-heading">科幻小说和武侠小说能否结合在一起，写出来会是什么样子的？</a>
+                                                    <p><small><strong>马伯庸,</strong>以球鞋为生</small></p>
+                                                    <p>前言：这个星期有点忙，东西还是要写，只是可能写短一点。很多人问我如何取得球鞋的资讯，我觉得其实这是很容易的事情，就这一次将此简单的写出来，让大家知道一下也好。 首先，别看中文，看英文。 很多新闻发放出来，国际媒体就会尽快跟进，所以，我一直都…</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="media">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <a class="media-left media-top" href="#">
+                                                    <div class="btn-group btn-group-custom">
+                                                        <button type="button" class="btn btn-info btn-block btn-xs">
+                                                            <span class="glyphicon glyphicon-chevron-up"></span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-info btn-block btn-xs">22</button>
+                                                        <button type="button" class="btn btn-info btn-block">
+                                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                                        </button>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="media-body">
+                                                    <a href="#" class="media-heading">科幻小说和武侠小说能否结合在一起，写出来会是什么样子的？</a>
+                                                    <p><small><strong>马伯庸,</strong>以球鞋为生</small></p>
+                                                    <p>前言：这个星期有点忙，东西还是要写，只是可能写短一点。很多人问我如何取得球鞋的资讯，我觉得其实这是很容易的事情，就这一次将此简单的写出来，让大家知道一下也好。 首先，别看中文，看英文。 很多新闻发放出来，国际媒体就会尽快跟进，所以，我一直都…</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="today-hot overflow hidden" id="month-hot">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <div class="media">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <a class="media-left media-top" href="#">
+                                                    <div class="btn-group btn-group-custom">
+                                                        <button type="button" class="btn btn-info btn-block btn-xs">
+                                                            <span class="glyphicon glyphicon-chevron-up"></span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-info btn-block btn-xs">212</button>
+                                                        <button type="button" class="btn btn-info btn-block">
+                                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                                        </button>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="media-body">
+                                                    <a href="#" class="media-heading">科幻小说和武侠小说能否结合在一起，写出来会是什么样子的？</a>
+                                                    <p><small><strong>马伯庸,</strong>以球鞋为生</small></p>
+                                                    <p>前言：这个星期有点忙，东西还是要写，只是可能写短一点。很多人问我如何取得球鞋的资讯，我觉得其实这是很容易的事情，就这一次将此简单的写出来，让大家知道一下也好。 首先，别看中文，看英文。 很多新闻发放出来，国际媒体就会尽快跟进，所以，我一直都…</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="media">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <a class="media-left media-top" href="#">
+                                                    <div class="btn-group btn-group-custom">
+                                                        <button type="button" class="btn btn-info btn-block btn-xs">
+                                                            <span class="glyphicon glyphicon-chevron-up"></span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-info btn-block btn-xs">122</button>
+                                                        <button type="button" class="btn btn-info btn-block">
+                                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                                        </button>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="media-body">
+                                                    <a href="#" class="media-heading">科幻小说和武侠小说能否结合在一起，写出来会是什么样子的？</a>
+                                                    <p><small><strong>马伯庸,</strong>以球鞋为生</small></p>
+                                                    <p>前言：这个星期有点忙，东西还是要写，只是可能写短一点。很多人问我如何取得球鞋的资讯，我觉得其实这是很容易的事情，就这一次将此简单的写出来，让大家知道一下也好。 首先，别看中文，看英文。 很多新闻发放出来，国际媒体就会尽快跟进，所以，我一直都…</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 remove-padding">
+                        <div class="hot-topic overflow">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span>热门话题</span>
+                                    <span class="pull-right">
+                                        <a href="#">
+                                        <small>更多话题»</small></a>
+                                    </span>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <div class="media">
+                                                <a href="#" class="media-left media-top">
+                                                    <img src="/images/v2-311b0b730fa22baf922503c479120450_m.jpg" alt="" width="40px" height="40px;" class="img-rounded">
+                                                </a>
+                                                <div class="media-body">
+                                                    <a class="media-heading" href="#">即使独自生活</a>
+                                                    <br>
+                                                    <span>19486 人关注</span>
+                                                    <span class="zg-bull">•</span>
+                                                    <span>13 个问题</span>
+                                                </div>
+                                            </div>
+                                            <li class="list-group-item">
+                                                <div class="media">
+                                                    <a href="#" class="media-left media-top">
+                                                        <img src="/images/v2-c7315ff66734d12775907ff47902ff58_m.jpg" alt="" width="40px" height="40px;" class="img-rounded">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <a class="media-heading" href="#">玩转无人机</a>
+                                                        <br>
+                                                        <span>4757 人关注</span>
+                                                        <span class="zg-bull">•</span>
+                                                        <span>23 个问题</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="media">
+                                                    <a href="#" class="media-left media-top">
+                                                        <img src="/images/v2-311b0b730fa22baf922503c479120450_m.jpg" alt="" width="40px" height="40px;" class="img-rounded">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <a class="media-heading" href="#">读个商学院</a>
+                                                        <br>
+                                                        <span>16686 人关注</span>
+                                                        <span class="zg-bull">•</span>
+                                                        <span>37 个问题</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hot-user remove-padding">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span>热门人物</span>
+                                    <span class="pull-right">
+                                        <a href="#">
+                                        <small>更多人物»</small></a>
+                                    </span>
+                                </div>
+                                <div class="panel-body remove-padding">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <div class="media">
+                                                <a href="#" class="media-left media-top">
+                                                    <img src="/images/08db7852bf563bbd2be74be1e862a849_m.jpg" width="50px" height="50px">
+                                                </a>
+                                                <div class="media-body">
+                                                    <p> <a href="#" class="media-heading">winter</a>
+                                                        <button class="btn btn-primary btn-xs pull-right">关注</button>
+                                                    </p>
+                                                    <p class="motto">专门黑知乎管理员，点赞评论手要快，因为很快被删被</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="media">
+                                                <a href="#" class="media-left media-top">
+                                                    <img src="/images/7be980a0f_m.jpg" width="50px" height="50px">
+                                                </a>
+                                                <div class="media-body">
+                                                    <p> <a href="#" class="media-heading">尤雨溪</a>
+                                                        <button class="btn btn-primary btn-xs pull-right">关注</button>
+                                                    </p>
+                                                    <p class="motto">不会搞艺术的程序员不是好设计师</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="media">
+                                                <a href="#" class="media-left media-top">
+                                                    <img src="/images/620193d7f_m.jpg" width="50px" height="50px">
+                                                </a>
+                                                <div class="media-body">
+                                                    <p> <a href="#" class="media-heading">玉伯</a>
+                                                        <button class="btn btn-primary btn-xs pull-right">关注</button>
+                                                    </p>
+                                                    <p class="motto">因上努力，果上随缘。</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="media">
+                                                <a href="#" class="media-left media-top">
+                                                    <img src="/images/33dcd7dd3e63f62f8575b5e5f77e1201_m.png" width="50px" height="50px">
+                                                </a>
+                                                <div class="media-body">
+                                                    <p> <a href="#" class="media-heading">萧井陌</a>
+                                                        <button class="btn btn-primary btn-xs pull-right">关注</button>
+                                                    </p>
+                                                    <p class="motto">微信公众号：炼瓜研究所 技术社区 http://cocode.cc</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$('#myTab a').click(function(e) {
+    console.log();
+    $()
+    e.preventDefault();
+    $(this).tab('show');
+    if ($(this).attr('data-option') == "month-hot") {
+        $("#month-hot").removeClass('hidden');
+        $("#today-hot").addClass('hidden');
+    } else {
+        $("#today-hot").removeClass('hidden');
+        $("#month-hot").addClass('hidden');
+    }
+})
+</script>
+
+</html>
