@@ -16,6 +16,6 @@ var AnswerSchema = new Schema({
     deleted: { type: Boolean, default: false }
 });
 
-ReplySchema.plugin(BaseModel);
+AnswerSchema.plugin(BaseModel);
 
 mongoose.model('Answer', AnswerSchema);

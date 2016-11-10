@@ -9,7 +9,7 @@ var UserSchema = new Schema({
     email: { type: String, unique: true },
     profile_image_url: { type: String },
     location: { type: String },
-    colleage: { type: String }
+    colleage: { type: String },
     signature: { type: String },
     profile: { type: String },
     avatar: { type: String },
@@ -23,8 +23,8 @@ var UserSchema = new Schema({
     update_at: { type: Date, default: Date.now },
     active: { type: Boolean, default: false },
     accessToken: { type: String },
-    questions:[type:ObjectId,ref:'Question'],
-    answers:[type:ObjectId,ref:'Answer']
+    questions: [{type: ObjectId, ref: 'Question'}],
+    answers: [{type: ObjectId, ref: 'Answer'}]
 });
 
 UserSchema.plugin(BaseModel);

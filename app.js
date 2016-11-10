@@ -7,11 +7,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session'); // session依赖cookie模块
 var mongoStore = require('connect-mongo')(session); // 对session进行持久化
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-//连接mongodb数据库
-mongoose.connect('mongodb://localhost/zhihu');
+var log4j = require('./common/logger.js')
+var routes = require('./routes/index');
 
 var app = express();
 
@@ -19,11 +16,12 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 // 将ejs模板引擎修改成htm后缀
 app.set('view engine', 'html');
-app.engine('.htm', require('ejs').__express);
+app.engine('.html', require('ejs').__express);
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+// app.use(logger('dev'));
+log4j.use(app);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -42,9 +40,12 @@ app.use(session({
     })
 }));
 
+//路由配置
+app.use('/', routes);
 
-app.use('/', index);
-app.use('/users', users);
+
+/*app.use('/', index);
+app.use('/users', users);*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -9,7 +9,7 @@ var UserAnswerSchema = new Schema({
   create_at: { type: Date, default: Date.now }
 });
 
-TopicCollectSchema.plugin(BaseModel);
-TopicCollectSchema.index({user: 1, answer: 1}, {unique: true});
+UserAnswerSchema.plugin(BaseModel);
+UserAnswerSchema.index({user: 1, answer: 1}, {unique: true});
 
 mongoose.model('UserAnswer', UserAnswerSchema);
