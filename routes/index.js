@@ -68,7 +68,7 @@ router.post('/register', function(req, res, next) {
                 var _password = req.body.password;
 
                 //对用户密码进行加密存储
-                bcrypt.hash(_password, null, null, function(err, hash) {
+                bcrypt.hash(_password, null, null, function(err, hash-) {
 
                     if (err) {
                         resJson.msg = 'bcrypt password was wrong';

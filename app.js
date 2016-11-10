@@ -18,7 +18,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 // 将ejs模板引擎修改成htm后缀
-app.set('view engine', 'htm');
+app.set('view engine', 'html');
 app.engine('.htm', require('ejs').__express);
 
 // uncomment after placing your favicon in /public
