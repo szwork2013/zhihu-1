@@ -1,7 +1,7 @@
 var validator = require('validator');
 
 module.exports = {
-    validateRegister: function(req, res, next) {
+    userInfo: function(req, res, next) {
 
 
         var _email = req.body.email;

@@ -23,10 +23,12 @@
         text-indent: 2em;
         word-spacing: 50px;
     }
-    .media-custom{
+    
+    .media-custom {
         padding-right: 40px;
     }
-    .list-group li{
+    
+    .list-group li {
         border: 0px;
     }
     </style>
@@ -57,9 +59,9 @@
                     <ul class="list-inline">
                         <li>
                             <span class="glyphicon glyphicon-user white"></span>
-                            <a href="#">注册知乎</a>
+                            <a href="/register">注册知乎</a>
                         </li>
-                        <li><a href="#">登录</a></li>
+                        <li><a href="/">登录</a></li>
                     </ul>
                 </div>
             </div>
@@ -67,22 +69,31 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2" >
+            <div class="col-md-8 col-md-offset-2">
                 <div class="media">
                     <div class="media-left media-middle media-custom">
                         <img src="/images/success.png">
                     </div>
                     <div class="media-body">
                         <ul class="list-group">
-                            <li class="media-heading list-group-item email-title">
-                                注册成功，欢迎您加入码知乎！
-                            </li>
-                            <li class=" list-group-item email-des">
-                                您的注册激活邮件已经成功发送至邮箱<kbd><%= email %></kbd>,请您立即登录邮箱激活帐号，激活后可以使用知乎的全部功能。
-                            </li>
-                            <li class=" list-group-item">
-                                <a href="/" class="btn btn-info btn-sm">返回首页</a>
-                            </li>
+                            <% if(active){ %>
+                                <li class="media-heading list-group-item email-title">
+                                    激活成功，欢迎您加入知乎！
+                                </li>
+                                <% } else{ %>
+                                <li class="media-heading list-group-item email-title">
+                                    注册成功，欢迎您加入知乎！
+                                </li>
+                                <li class=" list-group-item email-des">
+                                    您的注册激活邮件已经成功发送至邮箱
+                                    <kbd>
+                                        <%= email %>
+                                    </kbd>,请您立即登录邮箱激活帐号，激活后可以使用知乎的全部功能。
+                                </li>
+                                    <% } %>
+                                <li class=" list-group-item">
+                                    <a href="/explore" class="btn btn-info btn-sm">快速登录</a>
+                                </li>
                         </ul>
                         <!--  <span class="media-heading lead email-title">
                                 注册成功，欢迎您加入码农网！
@@ -98,8 +109,8 @@
     </div>
 </body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/lib/jquery/dist/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+                        <script src="/lib/jquery/dist/jquery.min.js"></script>
+                        <!-- Include all compiled plugins (below), or include individual files as needed -->
+                        <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </html>

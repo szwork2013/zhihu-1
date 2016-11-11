@@ -7,21 +7,20 @@ var user = require('../controllers/user');
 var router = express.Router();
 
 // home page
-router.get('/', function(req, res, next) {
-    // Cookies that have not been signed
-    console.log('Cookies: ', req.cookies)
+router.get('/', user.checkCookie);
 
-    // Cookies that have been signed
-    console.log('Signed Cookies: ', req.signedCookies)
+router.get('/login', function(req, res, next) {
     res.render('index');
 });
 
-router.get('/login', function(req, res, next) {
-    res.redirect('/');
-});
+router.post('/login', user.login);
 
 router.get('/active', function(req, res, next) {
     res.render('active');
+});
+
+router.get('/explore', function(req, res, next) {
+    res.render('explore');
 });
 
 router.get('/register', function(req, res, next) {
@@ -33,6 +32,6 @@ router.get('/active/user', user.activeUser);
 
 
 
-router.post('/register', validate.validateRegister, user.register);
+router.post('/register', validate.userInfo, user.register);
 
 module.exports = router;

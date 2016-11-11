@@ -106,26 +106,30 @@
                     <div class="panel-title text-center">知乎 - 与世界分享你的知识、经验和见解</div>
                 </div>
                 <div class="panel-body">
-                    <form name="form" id="form" class="form-horizontal" method="POST" action="/login">
+                    <form name="form" id="form" class="form-horizontal" method="POST">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input id="user" type="text" class="form-control" name="email" value="" placeholder="手机号或邮箱">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-envelope"></i>
+                            </span>
+                            <input id="email" type="text" class="form-control" name="email" value="" placeholder="手机号或邮箱" data-container="body" data-toggle="popover" data-placement="right" data-content="" data-trigger="manual" data-html=true>
                         </div>
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="password" type="password" class="form-control" name="password" placeholder="密码">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-lock"></i>
+                            </span>
+                            <input id="password" type="password" class="form-control" name="password" placeholder="密码" data-container="body" data-toggle="popover" data-placement="right" data-content="" data-trigger="manual" data-html=true>
                         </div>
                         <div class="form-group">
                             <!-- Button -->
                             <div class="col-sm-12 controls">
-                                <button type="submit" class="btn btn-primary btn-block">
+                                <button type="button" class="btn btn-primary btn-block" id="submit">
                                     <strong>登 录</strong>
                                 </button>
                             </div>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox">记住登录
+                                <input type="checkbox" name="remberme">记住登录
                             </label>
                             <label class="pull-right"><a href="/register">注册账号</a></label>
                         </div>
@@ -147,6 +151,41 @@
             dotColor: '#EAECED',
             lineColor: '#F0F3F5'
         });
+        $(function() {
+            $('[data-toggle="popover"]').popover();
+        })
+
+        $("input").click(function() {
+            $(this).popover('destroy');
+        });
+
+
+        $("#submit").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/login",
+                dataType: "json",
+                data: $('form.form-horizontal').serialize(),
+                success: function(res) {
+                    var msg ="<code>"+ res.msg+"</code>";
+                    if (res.code == 10000) {
+                        window.location = '/explore';
+                    } else if (res.code == 10004) {
+                        $("#email").attr("data-content", msg);
+                        $('#email').popover('show');
+                    } else {
+                        $("#password").attr("data-content", msg);
+                        $('#password').popover('show');
+                    }
+                },
+                error: function() {
+                    $("#email").attr("data-content", "未知错误,重新登录");
+                    $('#email').popover('show');
+                }
+            });
+        });
+
+
     });
     </script>
 </body>

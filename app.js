@@ -28,16 +28,16 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-app.use(cookieParser('zhihu'));
 app.use(cookieParser(config.session_secret));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    secret: 'zhihu', // 设置的secret字符串，来计算hash值并放在cookie中
+    name:"sessionID",
+    secret: config.session_secret, // 设置的secret字符串，来计算hash值并放在cookie中
     resave: false, // session变化才进行存储
     saveUninitialized: true,
     // 使用mongo对session进行持久化，将session存储进数据库中
     store: new mongoStore({
-        url: 'mongodb://localhost/zhihu', // 本地数据库地址
+        url: config.db, // 本地数据库地址
         collection: 'sessions' // 存储到mongodb中的字段名
     })
 }));

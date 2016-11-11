@@ -18,6 +18,12 @@ exports.updateUserByID = function(id, filed, callback) {
 
 }
 
+exports.findByEmail = function (email,callback) {
+    UserModel.findOne({email:email},function (err,user) {
+        callback(err,user);
+    })
+}
+
 exports.activeUserById = function(id, accessToken, callback) {
     UserModel.findById(id, function(err, user) {
     	if(err) return callback(err);
