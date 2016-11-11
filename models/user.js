@@ -5,7 +5,7 @@ var ObjectId = Schema.Types.ObjectId;
 
 var UserSchema = new Schema({
     username: { type: String },
-    pass: { type: String },
+    password: { type: String },
     email: { type: String, unique: true },
     profile_image_url: { type: String },
     location: { type: String },

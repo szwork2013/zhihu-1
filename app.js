@@ -9,6 +9,7 @@ var session = require('express-session'); // session依赖cookie模块
 var mongoStore = require('connect-mongo')(session); // 对session进行持久化
 var log4j = require('./common/logger.js')
 var routes = require('./routes/index');
+var config = require('./config');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(cookieParser('zhihu'));
+app.use(cookieParser(config.session_secret));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'zhihu', // 设置的secret字符串，来计算hash值并放在cookie中
@@ -42,6 +44,16 @@ app.use(session({
 
 //路由配置
 app.use('/', routes);
+//将session中的user保存到locals中
+app.use(function(req, res, next) {
+    var user = req.session.user;
+    if (user) {
+        app.locals.user = user;
+    } else {
+        app.locals.user = user;
+    };
+    next();
+});
 
 
 /*app.use('/', index);
@@ -52,6 +64,7 @@ app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
+    // res.render('404');
 });
 
 // error handler

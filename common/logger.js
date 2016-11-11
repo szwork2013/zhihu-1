@@ -24,5 +24,5 @@ logger.setLevel(logger_level);
 exports.logger = logger;  
   
 exports.use = function(app) {   
-    app.use(log4js.connectLogger(logger, {level:logger_level, format:':method :url'}));  
+    app.use(log4js.connectLogger(logger, {level:logger_level, format:':method :url :header'}));  
 }
