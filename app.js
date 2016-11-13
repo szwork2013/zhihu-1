@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session'); // session依赖cookie模块
 var mongoStore = require('connect-mongo')(session); // 对session进行持久化
+var fileUpload = require('express-fileupload');
 var log4j = require('./common/logger.js')
 var routes = require('./routes/index');
 var config = require('./config');
@@ -41,7 +42,7 @@ app.use(session({
         collection: 'sessions' // 存储到mongodb中的字段名
     })
 }));
-
+app.use(fileUpload());//文件上传
 //路由配置
 app.use('/', routes);
 //将session中的user保存到locals中

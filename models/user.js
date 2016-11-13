@@ -24,7 +24,8 @@ var UserSchema = new Schema({
     active: { type: Boolean, default: false },
     accessToken: { type: String },
     questions: [{type: ObjectId, ref: 'Question'}],
-    answers: [{type: ObjectId, ref: 'Answer'}]
+    answers: [{type: ObjectId, ref: 'Answer'}],
+    topics:[{type:ObjectId,ref:'Topic'}]
 });
 
 UserSchema.plugin(BaseModel);

@@ -16,8 +16,10 @@ require('./user');
 require('./question');
 require('./answer');
 require('./user_answer');
+require('./topic');
 
 exports.User         = mongoose.model('User');
 exports.Question        = mongoose.model('Question');
 exports.Answer        = mongoose.model('Answer');
 exports.UserAnswer = mongoose.model('UserAnswer');
+exports.Topic = mongoose.model('Topic');
