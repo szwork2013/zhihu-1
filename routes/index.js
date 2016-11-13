@@ -24,11 +24,11 @@ router.get('/user/isLogin',validate.login);
 
 // router.post('/askQuestion',validate.login,user.askQuestion);
 
-router.get('/login', function(req, res, next) {
+router.get('/signup', function(req, res, next) {
     res.render('index');
 });
 
-router.post('/login', user.login);
+router.post('/signin', user.login);
 
 router.get('/active', function(req, res, next) {
     res.render('active');
@@ -38,15 +38,10 @@ router.get('/explore', function(req, res, next) {
     res.render('explore');
 });
 
-router.get('/register', function(req, res, next) {
-    res.render('register');
-});
+
 
 router.get('/active/user', user.activeUser);
 
-
-
-
-router.post('/register', validate.userInfo, user.register);
+router.post('/signup', validate.userInfo, user.register);
 
 module.exports = router;

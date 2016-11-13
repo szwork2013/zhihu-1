@@ -76,3 +76,115 @@ body {
 .white {
     color: white;
 }
+
+.register-modal .modal-body,
+.reset-password-modal .modal-body,
+.login-modal .modal-body {
+    padding: 0px;
+}
+
+.register-modal .modal-header,
+.reset-password-modal .modal-header,
+.login-modal .modal-header {
+    padding: 5px 15px;
+    border-bottom: 0px;
+}
+
+.register-modal .modal-body h1,
+.reset-password-modal .modal-body h1,
+.login-modal .modal-body h1 {
+    text-align: center;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 5px;
+}
+
+.register-modal .modal-body h2,
+.reset-password-modal .modal-body h2,
+.login-modal .modal-body h2 {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.register-modal .signup-form,
+.reset-password-modal .signup-form,
+.login-modal .signin-form {
+    width: 100%;
+    margin: 0px;
+}
+
+.register-modal .signup-form input,
+.reset-password-modal .signup-form input,
+.login-modal .signin-form input {
+    border-right: 0px;
+    border-left: 0px;
+    padding: 24px 12px;
+}
+
+.register-modal .button-wrapper,
+.login-modal .button-wrapper {
+    width: 90%;
+}
+
+.reset-password-modal .button-wrapper {
+    width: 40%;
+    margin: 20px auto;
+    margin-top: 20px;
+}
+
+.reset-password-modal .form-group input {
+    padding: 20px 12px;
+    border-right: 0px;
+    border-left: 0px;
+    border-radius: 0px;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    outline: none;
+}
+
+.reset-password-modal .button-wrapper .btn-default {
+    padding: 5px 12px;
+    border: 0px;
+    color: white;
+    background-color: #0F88EB;
+}
+
+.reset-password-modal .button-wrapper .btn-default:hover {
+    background-color: #55ABED;
+}
+
+
+/*改变modal的背景色*/
+
+.modal-backdrop {
+    background-color: #FFFFFF;
+}
+
+
+/*modal剧中显示*/
+
+.modal {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+    }
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}

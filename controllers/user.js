@@ -15,13 +15,13 @@ exports.checkCookie = function(req, res, next) {
                     res.render('explore');
                 } else {
                     res.clearCookie('user_cookie'); //清除cookie
-                    res.redirect('/login')
+                    res.redirect('/signup')
                 }
             })
         })
 
     } else {
-        res.redirect('/login')
+        res.redirect('/signup')
     }
 
 

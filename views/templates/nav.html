@@ -1,0 +1,175 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1 col-md-offset-1">
+                <div class="navbar-header" style="">
+                    <a class="navbar-brand" href="/" id="brand">
+                        <img src="/images/brand.png">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3" style="padding-top: 8px;" id="search-input">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="搜索你感兴趣的类容...">
+                    <span class="input-group-btn">
+                            <button class="btn btn-default btn-custom" type="button">
+                                <span class="glyphicon glyphicon-search white"></span>
+                    </button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2" id="category-list">
+                <ul class="list-inline">
+                    <li><a href="#" class="">首页</a></li>
+                    <li><a href="#" class="">话题</a></li>
+                    <li><a href="#" class="">发现</a></li>
+                </ul>
+            </div>
+            <div class="col-md-1 col-md-offset-1" style="padding-top: 8px;">
+                <button class="btn btn-info btn-question" data-toggle="modal" id="askQuestionButton">提问</button>
+            </div>
+            <div class="col-md-2" id="user-info">
+                <ul class="list-inline">
+                    <li>
+                        <span class="glyphicon glyphicon-user white"></span>
+                        <a href="#">注册知乎</a>
+                    </li>
+                    <li><a href="#">登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="modal askquestion-modal" id="askquestion-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop='static'>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" tabindex="0">
+                    <span aria-hidden="true">&times;</span></button>
+                <span class="modal-dialog-title-text" role="heading">提问</span>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="writeQuesion" role="form" name="writeQuesion" method="POST">
+                            <div class="form-group">
+                                <input id="question-title" type="text" class="form-control" name="question-title" value="" placeholder="写下你的问题" style="padding: 20px 12px;">
+                            </div>
+                            <div class="form-group">
+                                <label for="question-explain">问题说明（可选）：</label>
+                                <input name="question-explain" type="hidden" class="form-control">
+                                <div id="editor-container" class="editor-container">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="question-topic-warp" id="question-topic-warp">
+                                    <p> <span class="choice-title">
+                                            选择话题： 
+                                        </span>
+                                        <span class="topic-explain">
+                                            话题越精准，越容易让相关领域专业人士看到你的问题
+                                        </span>
+                                    </p>
+                                    <div class="btn-group" style="margin-bottom: 10px;" id="choiced-topics">
+                                        <!--      <button type="button" class="btn btn-default btn-sm">left
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </button>
+                                            <button type="button" class="btn btn-default btn-sm">middle
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </button>
+                                            <button type="button" class="btn btn-default btn-sm">right
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </button> -->
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </span>
+                                        <input type="text" name="question-topic" placeholder="选择话题" class="form-control" id="question-topic">
+                                    </div>
+                                    <ul class="list-group" id="topic-tochoice-list">
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="submit_question">发布</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal register-modal" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop='static'>
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" tabindex="0">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>加入知乎</h1>
+                <h2>与世界分享你的知识、经验和见解</h2>
+                <%include signup.html%>
+            </div>
+            <div class="modal-footer">
+                <span class="pull-left">已有帐号？
+                    <a href="javascript:;" class="switch-to-login">登录</a>
+                    </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal login-modal" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop='static'>
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" tabindex="0">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>登录知乎</h1>
+                <h2>与世界分享你的知识、经验和见解</h2>
+                <%include signin.html%>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal reset-password-modal" id="reset-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop='static'>
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="javascript:;" class="pull-left reset-to-login">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </a>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" tabindex="0">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1>找回密码</h1>
+                <h2>验证码将会发送至你的注册邮箱或手机</h2>
+                <form role="form" class="reset-password-form" action="/resetPassword" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="邮箱" name="email">
+                    </div>
+                    <div class="button-wrapper">
+                        <button class="reset-password-button submit-btn btn btn-default btn-block" type="submit">重置密码</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="topic-tochoice-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <li class="list-group-item" data-id="{{_id}}" data-name="{{name}}">
+        <img src="/images/2bd2e49d3f849155376393085edc1d9e_s.jpg">
+        <span style="padding-left: 10px;">{{name}}</span>
+    </li>
+    {{/each}}
+</script>

@@ -1,0 +1,46 @@
+.signup-form {
+    border-radius: 3px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.signup-form .form-group {
+    margin-bottom: 0px;
+}
+
+.signup-form input {
+    border: 1px solid #d5d5d5;
+    border-top: 0px;
+    padding: 22px 12px;
+    border-radius: 0px;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    outline: none;
+}
+
+.signup-form .form-group:first-child input{
+	border-top: 1px solid #d5d5d5;
+}
+
+.btn-default:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.signup-form .button-wrapper {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.signup-form .button-wrapper .btn-default {
+    padding: 8px 12px;
+    border: 0px;
+    color: white;
+    background-color: #0F88EB;
+}
+
+.signup-form .button-wrapper .btn-default:hover {
+    background-color: #55ABED;
+}
