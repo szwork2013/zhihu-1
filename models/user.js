@@ -4,14 +4,15 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
 
 var UserSchema = new Schema({
-    username: { type: String },
+    username: { type: String, unique: true },
+    nickname:{type:String},
     password: { type: String },
-    email: { type: String, unique: true },
-    profile_image_url: { type: String },
+    email: { type: String},
     location: { type: String },
-    colleage: { type: String },
+    profile:{type:String},
+    employment: { type: String },
+    education: { type: String },
     signature: { type: String },
-    profile: { type: String },
     avatar: { type: String },
     question_count: { type: Number, default: 0 },
     answer_count: { type: Number, default: 0 },
@@ -23,13 +24,12 @@ var UserSchema = new Schema({
     update_at: { type: Date, default: Date.now },
     active: { type: Boolean, default: false },
     accessToken: { type: String },
-    questions: [{type: ObjectId, ref: 'Question'}],
-    answers: [{type: ObjectId, ref: 'Answer'}],
-    topics:[{type:ObjectId,ref:'Topic'}]
+    questions: [{ type: ObjectId, ref: 'Question' }],
+    answers: [{ type: ObjectId, ref: 'Answer' }],
+    topics: [{ type: ObjectId, ref: 'Topic' }]
 });
 
 UserSchema.plugin(BaseModel);
-UserSchema.index({ email: 1 }, { unique: true });
 UserSchema.pre('save', function(next) {
     var now = new Date();
     this.update_at = now;

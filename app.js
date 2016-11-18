@@ -50,8 +50,6 @@ app.use(function(req, res, next) {
     var user = req.session.user;
     if (user) {
         app.locals.user = user;
-    } else {
-        app.locals.user = user;
     };
     next();
 });

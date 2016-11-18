@@ -1,4 +1,5 @@
 var User = require('../proxy').User; //proxy user里面完成具体的业务
+var Question = require('../proxy').Question; //proxy user里面完成具体的业务
 var tools = require('../common/tools');
 var config = require('../config');
 var mailer = require('../common/email');
@@ -113,4 +114,44 @@ exports.register = function(req, res, next) {
 
     });
 
+}
+
+exports.askQuestion = function(req, res, next) {
+    /*    var question_title = req.question_title;
+        var question_explain = req.question_explain;
+        var topicIds = req.topicIds
+        Question.*/
+
+
+
+
+}
+
+/*发现首页*/
+exports.explore = function(req, res, next) {
+
+
+User.findRandomQuestion
+
+
+    Question.count().exec(function(err, count) {
+        var random = Math.floor(Math.random() * count);
+        Question.find().skip(random).limit(10).exec(
+            function(err, results) {
+                results.forEach(function(result, index) {
+                    console.log(result.title);
+                })
+            });
+    });
+
+
+
+}
+
+
+
+
+/*获取用户激活界面查看是否激活*/
+exports.getActivePage = function(req, res, next) {
+    next();
 }

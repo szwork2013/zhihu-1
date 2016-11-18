@@ -28,7 +28,7 @@ exports.login = function(req, res, next) {
     var user = req.session.user;
     //检查session中是否存在用户信息
     if (user) {
-        next();
+         return res.json({ code: 10000, msg: '已经登录' });
     } else {
         return res.json({ code: 10005, msg: '请登录' });
     }

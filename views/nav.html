@@ -13,107 +13,7 @@
     <link rel='stylesheet prefetch' href='/lib/quill/quill-1.13.snow.css'>
     <link rel="stylesheet" type="text/css" href="/stylesheets/nav.css">
     <style type="text/css">
-    #askquestion .modal-header {
-        margin: -1px -1px 0;
-        padding: 10px 15px 2px;
-        line-height: 14px;
-        background: #1D7FE2;
-        border: 1px solid #0D6EB8;
-        border-radius: 6px 6px 0 0;
-        box-shadow: 0 1px 0 rgba(255, 255, 255, .1) inset, 0 1px 1px rgba(0, 0, 0, .2);
-    }
-    
-    .modal-dialog-title-text {
-        color: #fff;
-        text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
-        font-size: 15px;
-        font-weight: 700;
-    }
-    
-    .editor-container {
-        height: 200px;
-    }
-    
-    .blue {
-        background-clip: blue;
-    }
-    
-    #question-topic-warp button {
-        background: #eff6fa;
-        border-radius: 30px;
-        color: #259;
-        border: 0px;
-        margin-right: 10px;
-        font-size: 13px;
-        line-height: 1.7;
-        word-wrap: break-word;
-        padding: 1px 10px;
-        text-align: center;
-    }
-    
-    .question-topic-warp .glyphicon-remove {
-        padding: 3px;
-        margin-top: 1px;
-        color: #225599;
-        font-weight: 100;
-        font-size: 1px;
-        border-radius: 30px;
-    }
-    
-    .question-topic-warp ul {
-        cursor: header;
-    }
-    
-    .question-topic-warp ul li {
-        cursor: pointer;
-        cursor: hand;
-    }
-    
-    .question-topic-warp ul li:hover {
-        background-color: #D6E9F8;
-    }
-    
-    .glyphicon-remove:hover {
-        background-color: #259;
-        color: white;
-    }
-    
-    .topic-explain {
-        color: #999;
-        font-size: 12px;
-        font-weight: 400;
-        float: right;
-    }
-    
-    .choice-title {
-        font-size: 14px;
-        line-height: 1.7;
-        word-wrap: break-word;
-        color: #222;
-    }
-    
-    .modal {
-        text-align: center;
-    }
-    
-    .modal-backdrop {
-        background-color: #FFFFFF;
-    }
-    
-    @media screen and (min-width: 768px) {
-        .modal:before {
-            display: inline-block;
-            vertical-align: middle;
-            content: " ";
-            height: 100%;
-        }
-    }
-    
-    .modal-dialog {
-        display: inline-block;
-        text-align: left;
-        vertical-align: middle;
-    }
+
     
     .register-modal .modal-content {
         border-radius: 10px;
@@ -497,6 +397,7 @@ $(document).ready(function() {
     });
 
     $(".switch-to-login").bind('click', function() {
+        console.log('fd1');
         $('#register').modal('hide');
         $('#login').modal('show');
         

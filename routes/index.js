@@ -8,35 +8,29 @@ var file = require('../controllers/file');
 var topic = require('../controllers/topic');
 var router = express.Router();
 
+router.post('/askQuestion',user.askQuestion);
 
 router.post('/queryTopic',topic.queryTopic);
-
-// home page
-router.get('/nav', function (req,res,next) {
-	res.render('nav')
-});
 
 router.post('/uploadFile',file.uploadFile);
 
 router.get('/', user.checkCookie);
 
-router.get('/user/isLogin',validate.login);
-
-// router.post('/askQuestion',validate.login,user.askQuestion);
+router.post('/user/isLogin',validate.login);
 
 router.get('/signup', function(req, res, next) {
     res.render('index');
 });
 
+router.get('/nav', function(req, res, next) {
+    res.render('nav')
+});
+
 router.post('/signin', user.login);
 
-router.get('/active', function(req, res, next) {
-    res.render('active');
-});
+router.get('/active', user.getActivePage);
 
-router.get('/explore', function(req, res, next) {
-    res.render('explore');
-});
+router.get('/explore', user.explore);
 
 
 

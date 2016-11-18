@@ -23,6 +23,7 @@
     "nodemailer": "^2.6.4",
     "serve-favicon": "~2.3.0",
     "sha1": "^1.1.1",
+    "string": "^3.3.3",
     "validator": "^6.1.0"
   }
 }

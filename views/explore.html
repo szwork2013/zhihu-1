@@ -9,7 +9,7 @@
     <title>知乎 - 与世界分享你的知识、经验和见解</title>
     <!-- Bootstrap -->
     <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/nav.css">
+    <link rel='stylesheet prefetch' href='/lib/quill/quill-1.13.snow.css'>
     <link rel="stylesheet" type="text/css" href="/stylesheets/explore.css">
 </head>
 
@@ -311,14 +311,12 @@
 <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src='/lib/quill/quill.min.js'></script>
 <script type="text/javascript" src='/lib/handlebars/handlebars.min.js'></script>
-<script type="text/javascript" src="/javascripts/nav.js"></script>
 <script type="text/javascript" src="/javascripts/signin.js"></script>
 <script type="text/javascript" src="/javascripts/signup.js"></script>
+<script type="text/javascript" src="/javascripts/nav.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     $('#myTab a').click(function(e) {
-        console.log();
-        $()
         e.preventDefault();
         $(this).tab('show');
         if ($(this).attr('data-option') == "month-hot") {

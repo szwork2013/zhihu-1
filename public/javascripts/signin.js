@@ -8,12 +8,12 @@ $(document).ready(function() {
     });
 
 
-    $(".singin-button").click(function() {
+    $(".signin-button").click(function() {
         $.ajax({
             type: "POST",
             url: "/signin",
             dataType: "json",
-            data: $('form.form-horizontal').serialize(),
+            data: $('form.signin-form').serialize(),
             success: function(res) {
                 var msg = "<code>" + res.msg + "</code>";
                 if (res.code == 10000) {

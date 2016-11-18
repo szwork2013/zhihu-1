@@ -11,6 +11,7 @@ var AnswerSchema = new Schema({
     update_at: { type: Date, default: Date.now },
    	vote_up_count: { type: Number, default: 0 },
     vote_down_count: { type: Number, default: 0 },
+    question_url: { type:String },
 /*    vote_up: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     vote_down: [{ type: Schema.Types.ObjectId, ref: 'User' }]*/
     deleted: { type: Boolean, default: false }

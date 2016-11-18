@@ -55,6 +55,29 @@ $(document).ready(function() {
             var _id = $(hasChoiceTopicId[i]).attr("data-id");
             topicIds[i] = _id;
         }
+        console.log(question_explain);
+        console.log(topicIds);
+        console.log(question_title);
+        $.ajax({
+                url: '/askQuestion',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    question_title: question_title,
+                    question_explain: question_explain,
+                    topicIds: topicIds
+                },
+            })
+            .done(function() {
+                console.log("success");
+            })
+            .fail(function() {
+                console.log("error");
+            })
+            .always(function() {
+                console.log("complete");
+            });
+
     });
 
 
@@ -92,8 +115,11 @@ $(document).ready(function() {
     });
 
     $("#askQuestionButton").bind('click', function() {
+        console.log('fd')
+        aj
         $.ajax({
                 url: '/user/isLogin',
+                type: 'POST',
                 dataType: 'json'
             })
             .done(function(response) {
@@ -116,16 +142,17 @@ $(document).ready(function() {
         $('#register-modal').modal('hide');
         $('#login-modal').modal('show');
 
-    });
+    })
+
     $(".unable-login").bind('click', function() {
         $('#login-modal').modal('hide');
         $('#reset-password-modal').modal('show');
+
     })
 
-    $(".reset-to-login").bind('click', function() {
+    $('.reset-to-login').bind('click', function() {
         $('#reset-password-modal').modal('hide');
         $('#login-modal').modal('show');
-
     })
 
 
