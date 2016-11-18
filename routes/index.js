@@ -38,4 +38,8 @@ router.get('/active/user', user.activeUser);
 
 router.post('/signup', validate.userInfo, user.register);
 
+router.post('/question/topAnswer',user.getQuestionTopAnswer);
+router.post('/getHotQuestion',user.getHotQuestion);
+router.post('/getHotAnswer',user.getHotAnswer);
+router.get('/question/:question_id',user.getQuestionAndAnswerById);
 module.exports = router;

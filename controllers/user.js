@@ -24,8 +24,6 @@ exports.checkCookie = function(req, res, next) {
     } else {
         res.redirect('/signup')
     }
-
-
 }
 
 
@@ -129,29 +127,62 @@ exports.askQuestion = function(req, res, next) {
 
 /*发现首页*/
 exports.explore = function(req, res, next) {
+    User.findRandomQuestion(function(err, recommend) {
+        if (err) {
+            return next(err);
+        }
+        res.render('explore', {
+            recommend: recommend
+        });
 
-
-User.findRandomQuestion
-
-
-    Question.count().exec(function(err, count) {
-        var random = Math.floor(Math.random() * count);
-        Question.find().skip(random).limit(10).exec(
-            function(err, results) {
-                results.forEach(function(result, index) {
-                    console.log(result.title);
-                })
-            });
     });
-
-
-
 }
 
+exports.getHotQuestion = function(req, res, next) {
+    var skip = parseInt(req.body.skip);
+    User.getHotQuestion(skip, function(err, questions) {
+        if (err) {
+            return next(err)
+        }
+        res.json(questions);
+    })
+}
 
+exports.getQuestionTopAnswer = function(req, res, next) {
+    var question_id = req.body.question_id;
+    User.getQuestionTopAnswer(question_id, function(err, answer) {
+        if (err) {
+            return next(err)
+        }
+        res.json(answer);
 
+    });
+}
+
+exports.getHotAnswer = function(req, res, next) {
+    var skip = parseInt(req.body.skip);
+    User.getHotAnswer(skip, function(err, answers) {
+        if (err) {
+            return next(err)
+        }
+        res.json(answers);
+    })
+}
 
 /*获取用户激活界面查看是否激活*/
 exports.getActivePage = function(req, res, next) {
     next();
+}
+
+exports.getQuestionAndAnswerById = function(req, res, next) {
+    var question_id = req.params.question_id;
+    User.getQuestionAndAnswerById(question_id, function(err, result) {
+        if (err) {
+            return next(err)
+        }
+        res.render('question', {
+            question:result.question,
+            answers:result.answers
+        })
+    });
 }

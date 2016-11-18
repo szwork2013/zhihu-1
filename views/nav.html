@@ -175,7 +175,7 @@
                                             <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-search"></span>
                                             </span>
-                                            <input type="text" name="question-topic" placeholder="选择话题" class="form-control" id="question-topic">
+                                            <input type="text" name="question-topic" placeholder="选择话题" class="form-control" id="question-topic-input">
                                         </div>
                                         <ul class="list-group" id="topic-tochoice-list">
                                         </ul>
@@ -343,7 +343,7 @@ $(document).ready(function() {
 
 
 
-    $('#question-topic').bind('input propertychange', function(element) {
+    $('#question-topic-input').bind('input propertychange', function(element) {
 
         var query_word = $(this).val();
         if (query_word != "" && query_word != null) {

@@ -11,14 +11,12 @@ var QuestionSchema = new Schema({
     good: { type: Boolean, default: false }, // 精华问题
     lock: { type: Boolean, default: false }, // 问题被锁定
     answer_count: { type: Number, default: 0 }, //答案数量
-    visit_count: { type: String, default: 0 }, //访问数量
     visit: { type: Number, default: 0 }, //访问数量
     collect_count: { type: Number, default: 0 }, //收场数量
     create_at: { type: Date, default: Date.now }, //创建时间
     update_at: { type: Date, default: Date.now }, //更新时间
     deleted: { type: Boolean, default: false }, //是否删除
-    author: { type: ObjectId, ref: 'User' },
-    topics: [{ type: ObjectId, ref: 'Topic' }]
+    author: { type: ObjectId, ref: 'User' }
 });
 
 QuestionSchema.plugin(BaseModel);

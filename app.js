@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser(config.session_secret));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    name:"sessionID",
+    name: "sessionID",
     secret: config.session_secret, // 设置的secret字符串，来计算hash值并放在cookie中
     resave: false, // session变化才进行存储
     saveUninitialized: true,
@@ -42,17 +42,22 @@ app.use(session({
         collection: 'sessions' // 存储到mongodb中的字段名
     })
 }));
-app.use(fileUpload());//文件上传
+app.use(fileUpload()); //文件上传
+app.use(function(req, res, next) {
+    var user = req.session.user;
+    console.log('fddfdf')
+    if (user) {
+        app.locals.user = user;
+         app.locals.login = true;
+    } else {
+        app.locals.login = false;
+    }
+    next();
+});
 //路由配置
 app.use('/', routes);
 //将session中的user保存到locals中
-app.use(function(req, res, next) {
-    var user = req.session.user;
-    if (user) {
-        app.locals.user = user;
-    };
-    next();
-});
+
 
 
 /*app.use('/', index);

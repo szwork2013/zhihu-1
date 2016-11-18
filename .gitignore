@@ -21,6 +21,7 @@ desktop.ini
 .idea
 public/upload/*
 public/lib/*
+public/images/*
 
 *.sublime-project
 *.sublime-workspace

@@ -27,150 +27,54 @@
                                     <a href="#" class="pull-right">更多推荐&gt;&gt;</a>
                                 </div>
                                 <div class="panel-body">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <div class="media">
-                                                <a class="media-left media-top" href="#">
-                                                    <img src="/images/8e875bdcaa8de35571d2d60ce23466f0_l.jpg" alt="#" width="38px" height="38px">
-                                                </a>
-                                                <div class="media-body">
-                                                    <a href="#" class="media-heading">如何简单的取得最新球鞋资讯？</a>
-                                                    <p><small><strong>阿Nel,</strong>以球鞋为生</small></p>
-                                                    <p>前言：这个星期有点忙，东西还是要写，只是可能写短一点。很多人问我如何取得球鞋的资讯，我觉得其实这是很容易的事情，就这一次将此简单的写出来，让大家知道一下也好。 首先，别看中文，看英文。 很多新闻发放出来，国际媒体就会尽快跟进，所以，我一直都…</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#">为什么拆车件很值？这里面的「套路」是怎样的？</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#">乐视哪来的资金支撑其无底洞式的烧钱举动？</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#">2B行业是个无底洞，究竟该怎么做？</a>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <a href="#">商学院的课程会通过哪些方式保持「与时俱进」？</a>
-                                        </li>
+                                    <ul class="list-group recommend">
+                                        <% recommend.forEach(function( question,index ){ %>
+                                            <%if(index==0){%>
+                                                <li class="list-group-item" data-id="<%=question._id%>">
+                                                    <div class="media">
+                                                        <a class="media-left media-top" href="#">
+                                                        <img src="/images/avatar/<%=question.author.avatar%>" 
+                                                        alt="#" width="38px" height="38px">
+                                                    </a>
+                                                        <div class="media-body">
+                                                            <a href="/question/<%=question._id%>" class="media-heading">
+                                                                <%=question.title%>
+                                                            </a>
+                                                            <p>
+                                                                <small>
+                                                            <strong>
+                                                                <%=question.author.nickname%>,
+                                                            </strong>
+                                                             <%=question.author.signature%>,
+                                                            </small>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <%}else{%>
+                                                    <li class="list-group-item">
+                                                        <a href="/question/<%question._id%>">
+                                                            <%=question.title%>
+                                                        </a>
+                                                    </li>
+                                                    <%}%>
+                                                        <% }); %>
                                     </ul>
                                 </div>
                             </div>
                             <div class="content-tabs overflow">
                                 <ul class="nav nav-tabs" role="tablist" id="myTab">
-                                    <li role="presentation" class="active"><a href="#today-hot" data-option="today-hot">今日最热</a></li>
-                                    <li role="presentation"><a href="#month-hot" data-option="month-hot">本月最热</a></li>
+                                    <li role="presentation" class="active"><a href="#today-hot" data-option="today-hot">热门问题</a></li>
+                                    <li role="presentation"><a href="#month-hot" data-option="month-hot">热门答案</a></li>
                                 </ul>
                             </div>
                             <div class="today-hot overflow" id="today-hot">
                                 <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <a class="media-left media-top" href="#">
-                                                        <div class="btn-group btn-group-custom">
-                                                            <button type="button" class="btn btn-info btn-block btn-xs">
-                                                                <span class="glyphicon glyphicon-chevron-up"></span>
-                                                            </button>
-                                                            <button type="button" class="btn btn-info btn-block btn-xs">22</button>
-                                                            <button type="button" class="btn btn-info btn-block">
-                                                                <span class="glyphicon glyphicon-chevron-down"></span>
-                                                            </button>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="media-body">
-                                                        <a href="#" class="media-heading">科幻小说和武侠小说能否结合在一起，写出来会是什么样子的？</a>
-                                                        <p><small><strong>马伯庸,</strong>以球鞋为生</small></p>
-                                                        <p>前言：这个星期有点忙，东西还是要写，只是可能写短一点。很多人问我如何取得球鞋的资讯，我觉得其实这是很容易的事情，就这一次将此简单的写出来，让大家知道一下也好。 首先，别看中文，看英文。 很多新闻发放出来，国际媒体就会尽快跟进，所以，我一直都…</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <a class="media-left media-top" href="#">
-                                                        <div class="btn-group btn-group-custom">
-                                                            <button type="button" class="btn btn-info btn-block btn-xs">
-                                                                <span class="glyphicon glyphicon-chevron-up"></span>
-                                                            </button>
-                                                            <button type="button" class="btn btn-info btn-block btn-xs">22</button>
-                                                            <button type="button" class="btn btn-info btn-block">
-                                                                <span class="glyphicon glyphicon-chevron-down"></span>
-                                                            </button>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="media-body">
-                                                        <a href="#" class="media-heading">科幻小说和武侠小说能否结合在一起，写出来会是什么样子的？</a>
-                                                        <p><small><strong>马伯庸,</strong>以球鞋为生</small></p>
-                                                        <p>前言：这个星期有点忙，东西还是要写，只是可能写短一点。很多人问我如何取得球鞋的资讯，我觉得其实这是很容易的事情，就这一次将此简单的写出来，让大家知道一下也好。 首先，别看中文，看英文。 很多新闻发放出来，国际媒体就会尽快跟进，所以，我一直都…</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                         
                                 </ul>
                             </div>
                             <div class="today-hot overflow hidden" id="month-hot">
                                 <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <a class="media-left media-top" href="#">
-                                                        <div class="btn-group btn-group-custom">
-                                                            <button type="button" class="btn btn-info btn-block btn-xs">
-                                                                <span class="glyphicon glyphicon-chevron-up"></span>
-                                                            </button>
-                                                            <button type="button" class="btn btn-info btn-block btn-xs">212</button>
-                                                            <button type="button" class="btn btn-info btn-block">
-                                                                <span class="glyphicon glyphicon-chevron-down"></span>
-                                                            </button>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="media-body">
-                                                        <a href="#" class="media-heading">科幻小说和武侠小说能否结合在一起，写出来会是什么样子的？</a>
-                                                        <p><small><strong>马伯庸,</strong>以球鞋为生</small></p>
-                                                        <p>前言：这个星期有点忙，东西还是要写，只是可能写短一点。很多人问我如何取得球鞋的资讯，我觉得其实这是很容易的事情，就这一次将此简单的写出来，让大家知道一下也好。 首先，别看中文，看英文。 很多新闻发放出来，国际媒体就会尽快跟进，所以，我一直都…</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="media">
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <a class="media-left media-top" href="#">
-                                                        <div class="btn-group btn-group-custom">
-                                                            <button type="button" class="btn btn-info btn-block btn-xs">
-                                                                <span class="glyphicon glyphicon-chevron-up"></span>
-                                                            </button>
-                                                            <button type="button" class="btn btn-info btn-block btn-xs">122</button>
-                                                            <button type="button" class="btn btn-info btn-block">
-                                                                <span class="glyphicon glyphicon-chevron-down"></span>
-                                                            </button>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="media-body">
-                                                        <a href="#" class="media-heading">科幻小说和武侠小说能否结合在一起，写出来会是什么样子的？</a>
-                                                        <p><small><strong>马伯庸,</strong>以球鞋为生</small></p>
-                                                        <p>前言：这个星期有点忙，东西还是要写，只是可能写短一点。很多人问我如何取得球鞋的资讯，我觉得其实这是很容易的事情，就这一次将此简单的写出来，让大家知道一下也好。 首先，别看中文，看英文。 很多新闻发放出来，国际媒体就会尽快跟进，所以，我一直都…</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -314,7 +218,39 @@
 <script type="text/javascript" src="/javascripts/signin.js"></script>
 <script type="text/javascript" src="/javascripts/signup.js"></script>
 <script type="text/javascript" src="/javascripts/nav.js"></script>
+<script id="hot-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <li class="list-group-item">
+        <div class="media">
+            <div class="row">
+                <div class="col-md-1">
+                    <a class="media-left media-top" href="#">
+                        <div class="btn-group btn-group-custom">
+                            <button type="button" class="btn btn-info btn-block btn-xs">
+                                <span class="glyphicon glyphicon-chevron-up"></span>
+                            </button>
+                            <button type="button" class="btn btn-info btn-block btn-xs">{{answer_vote_up}}</button>
+                            <button type="button" class="btn btn-info btn-block">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </button>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-10">
+                    <div class="media-body">
+                        <a href="#" class="media-heading">{{question_title}}</a>
+                        <p><small><strong>{{author_name}},</strong>{{author_signature}}</small></p>
+                        <p>{{{answer_content}}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</script>
 <script type="text/javascript">
+var hot_template_html = $("#hot-template").html();
+var hot_template = Handlebars.compile(hot_template_html);
 $(document).ready(function() {
     $('#myTab a').click(function(e) {
         e.preventDefault();
@@ -326,8 +262,69 @@ $(document).ready(function() {
             $("#today-hot").removeClass('hidden');
             $("#month-hot").addClass('hidden');
         }
-    })
+    });
+
+    var question_id = $(".recommend li").first().attr('data-id');
+    getQuestionTopAnswer(question_id);
+    getHotQuestion();
+    getHotAnswer();
 });
+
+function getHotQuestion() {
+
+    $.ajax({
+        url: '/getHotQuestion',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            skip: 0
+        },
+        success: function(results) {
+            console.log(results);
+            $("#today-hot ul").append(hot_template(results));
+        },
+        error: (function() {
+            console.log('error');
+        })
+    });
+
+}
+
+function getHotAnswer() {
+    $.ajax({
+        url: '/getHotAnswer',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            skip: 0
+        },
+        success: function(results) {
+            $("#month-hot ul").append(hot_template(results));
+        },
+        error: (function() {
+            console.log('error');
+        })
+    });
+}
+
+function getQuestionTopAnswer(question_id) {
+    $.ajax({
+        url: '/question/topAnswer',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            question_id: question_id
+        },
+        success: function(answer) {
+            if (answer) {
+                $(".recommend li").first().find('.media-body').append(answer.content);
+            }
+        },
+        error: (function() {
+            console.log('error');
+        })
+    });
+}
 </script>
 
 </html>

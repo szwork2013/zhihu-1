@@ -82,7 +82,7 @@ $(document).ready(function() {
 
 
 
-    $('#question-topic').bind('input propertychange', function(element) {
+    $('#question-topic-input').bind('input propertychange', function(element) {
 
         var query_word = $(this).val();
         if (query_word != "" && query_word != null) {
@@ -114,9 +114,17 @@ $(document).ready(function() {
         }
     });
 
+
+    $("#user-info a").bind('click', function() {
+        if ($(this).attr('data-option') == "signin") {
+            $('#login-modal').modal('show');
+        } else {
+            $('#register-modal').modal('show');
+        }
+    })
+
     $("#askQuestionButton").bind('click', function() {
         console.log('fd')
-        aj
         $.ajax({
                 url: '/user/isLogin',
                 type: 'POST',
@@ -154,13 +162,6 @@ $(document).ready(function() {
         $('#reset-password-modal').modal('hide');
         $('#login-modal').modal('show');
     })
-
-
-    /*    $(function() {
-            $('#askquestion').modal('show');
-        });*/
-
-
 });
 
 function bindListener(_this, event, callback) {

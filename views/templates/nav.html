@@ -21,10 +21,9 @@
             </div>
             <div class="col-md-2" id="category-list">
                 <ul class="list-inline">
-                    <li><a href="#" class="">首页</a></li>
-                    <li><a href="#" class="">话题</a></li>
-                    <li><a href="#" class="">发现</a></li>
-                    <li><a href="#" class="">消息</a></li>
+                    <li><a href="/explore" class="">首页</a></li>
+                    <li><a href="/answer" class="">答题</a></li>
+                    <li><a href="/explore" class="">发现</a></li>
                 </ul>
             </div>
             <div class="col-md-1 col-md-offset-1" style="padding-top: 8px;">
@@ -32,11 +31,18 @@
             </div>
             <div class="col-md-2" id="user-info">
                 <ul class="list-inline">
+                <%if(!login){%>
                     <li>
                         <span class="glyphicon glyphicon-user white"></span>
-                        <a href="#">注册知乎</a>
+                        <a href="javascript:;" data-option="signup">注册知乎</a>
                     </li>
-                    <li><a href="#">登录</a></li>
+                    <li><a href="javascript:;" data-option="signin">登录</a></li>
+                    <%}else{%>
+                    <li>
+                        <img src="/images/avatar/v2-a441265f51242e3f0cbb20bd55da6dbc_l.jpg" width="25px" height="25px">
+                        <a href="#" style="font-size: 13px;padding-top: 2px">退出登录</a>
+                    </li>
+                    <%}%>
                 </ul>
             </div>
         </div>
@@ -87,7 +93,7 @@
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </span>
-                                        <input type="text" name="question-topic" placeholder="选择话题" class="form-control" id="question-topic">
+                                        <input type="text" name="question-topic" placeholder="选择话题" class="form-control" id="question-topic-input">
                                     </div>
                                     <ul class="list-group" id="topic-tochoice-list">
                                     </ul>
