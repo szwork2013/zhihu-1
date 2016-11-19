@@ -3,26 +3,24 @@ var config = require('../config');
 var env = process.env.NODE_ENV || "development"
 var log4js = require('log4js');
 
+
 log4js.configure({
     appenders: [
         { type: 'console' }, {
             type: 'file',
             filename: 'logs/zhihu.log',
-            "maxLogSize": 20480,
-            "backups": 3,
-            category: 'cheese'
+            maxLogSize: 1024,
+            backups: 4,
+            category: 'normal'
         }
     ],
     replaceConsole: true
 });
 
-var logger = log4js.getLogger('cheese');
-var logger_level = config.debug && env !== 'test' ? 'DEBUG' : 'ERROR';
-logger.setLevel(logger_level);
+var level = config.debug && env !== 'test' ? 'INFO' : 'DEBUG';
 
-
-exports.logger = logger;  
-  
-exports.use = function(app) {   
-    app.use(log4js.connectLogger(logger, {level:logger_level, format:':method :url :header'}));  
+exports.logger = function(name) {
+    var logger = log4js.getLogger(name);
+    logger.setLevel(level);
+    return logger;
 }

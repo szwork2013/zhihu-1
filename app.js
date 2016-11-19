@@ -8,22 +8,19 @@ var mongoose = require('mongoose');
 var session = require('express-session'); // session依赖cookie模块
 var mongoStore = require('connect-mongo')(session); // 对session进行持久化
 var fileUpload = require('express-fileupload');
-var log4j = require('./common/logger.js')
+var log4js = require('log4js');
 var routes = require('./routes/index');
 var config = require('./config');
+var logger = require('./common/logger').logger('normal');
 
 var app = express();
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
-// 将ejs模板引擎修改成htm后缀
 app.set('view engine', 'html');
 app.engine('.html', require('ejs').__express);
 
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-// app.use(logger('dev'));
-log4j.use(app);
+app.use(log4js.connectLogger(logger,{ format:':method :url :status'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -45,10 +42,9 @@ app.use(session({
 app.use(fileUpload()); //文件上传
 app.use(function(req, res, next) {
     var user = req.session.user;
-    console.log('fddfdf')
     if (user) {
         app.locals.user = user;
-         app.locals.login = true;
+        app.locals.login = true;
     } else {
         app.locals.login = false;
     }
@@ -56,19 +52,9 @@ app.use(function(req, res, next) {
 });
 //路由配置
 app.use('/', routes);
-//将session中的user保存到locals中
 
-
-
-/*app.use('/', index);
-app.use('/users', users);*/
-
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-    // res.render('404');
+    res.render('404')
 });
 
 // error handler

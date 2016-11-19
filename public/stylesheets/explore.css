@@ -196,4 +196,12 @@ body {
     color: #999;
     word-wrap: normal;
 }
+.load-more{
+    margin: 0 auto;
+    width: 80%;
+    padding-bottom: 50px;
+}
+.load-more-button{
+    
+
 }

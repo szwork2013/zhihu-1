@@ -5,11 +5,11 @@ var ObjectId = Schema.Types.ObjectId;
 
 var UserSchema = new Schema({
     username: { type: String, unique: true },
-    nickname:{type:String},
+    nickname: { type: String },
     password: { type: String },
     email: { type: String},
     location: { type: String },
-    profile:{type:String},
+    profile: { type: String },
     employment: { type: String },
     education: { type: String },
     signature: { type: String },

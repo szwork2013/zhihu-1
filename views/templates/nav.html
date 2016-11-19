@@ -39,8 +39,8 @@
                     <li><a href="javascript:;" data-option="signin">登录</a></li>
                     <%}else{%>
                     <li>
-                        <img src="/images/avatar/v2-a441265f51242e3f0cbb20bd55da6dbc_l.jpg" width="25px" height="25px">
-                        <a href="#" style="font-size: 13px;padding-top: 2px">退出登录</a>
+                        <img src="/images/avatar/<%=user.avatar%>" width="25px" height="25px">
+                        <a href="/logout" style="font-size: 13px;padding-top: 2px">退出登录</a>
                     </li>
                     <%}%>
                 </ul>
@@ -93,7 +93,7 @@
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-search"></span>
                                         </span>
-                                        <input type="text" name="question-topic" placeholder="选择话题" class="form-control" id="question-topic-input">
+                                        <input type="text" name="question-topic" placeholder="有待更新中" class="form-control" id="question-topic-input" disabled="true">
                                     </div>
                                     <ul class="list-group" id="topic-tochoice-list">
                                     </ul>

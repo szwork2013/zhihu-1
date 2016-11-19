@@ -24,7 +24,7 @@
                                 <div class="panel-heading panel-heading-custom">
                                     <span class="glyphicon glyphicon-th-list"></span>
                                     <span>编辑推荐</span>
-                                    <a href="#" class="pull-right">更多推荐&gt;&gt;</a>
+                                    <a href="javascript:;" class="pull-right">更多推荐&gt;&gt;</a>
                                 </div>
                                 <div class="panel-body">
                                     <ul class="list-group recommend">
@@ -53,7 +53,7 @@
                                                 </li>
                                                 <%}else{%>
                                                     <li class="list-group-item">
-                                                        <a href="/question/<%question._id%>">
+                                                        <a href="/question/<%=question._id%>">
                                                             <%=question.title%>
                                                         </a>
                                                     </li>
@@ -70,19 +70,23 @@
                             </div>
                             <div class="today-hot overflow" id="today-hot">
                                 <ul class="list-group">
-                         
                                 </ul>
                             </div>
                             <div class="today-hot overflow hidden" id="month-hot">
                                 <ul class="list-group">
                                 </ul>
                             </div>
+                            <div class="load-more">
+                                <button class="btn btn-default btn-sm load-more-button btn-block" type="button">
+                                    加载更多
+                                </button>
+                            </div>
                         </div>
                         <div class="col-md-3 remove-padding">
                             <div class="hot-topic overflow">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <span>热门话题</span>
+                                        <span>有待完善</span>
                                         <span class="pull-right">
                                         <a href="#">
                                         <small>更多话题»</small></a>
@@ -238,7 +242,7 @@
                 </div>
                 <div class="col-md-10">
                     <div class="media-body">
-                        <a href="#" class="media-heading">{{question_title}}</a>
+                        <a href="/question/{{question_id}}" class="media-heading">{{question_title}}</a>
                         <p><small><strong>{{author_name}},</strong>{{author_signature}}</small></p>
                         <p>{{{answer_content}}}</p>
                     </div>
@@ -251,6 +255,11 @@
 <script type="text/javascript">
 var hot_template_html = $("#hot-template").html();
 var hot_template = Handlebars.compile(hot_template_html);
+var hot_answer_count = 0;
+var hot_question_count = 0;
+var page_count = 5; //每次自动加载5条
+var once = true;
+var winH = $(window).height(); //页面可视区域高度   
 $(document).ready(function() {
     $('#myTab a').click(function(e) {
         e.preventDefault();
@@ -264,6 +273,15 @@ $(document).ready(function() {
         }
     });
 
+    $('.load-more-button').bind('click', function() {
+        console.log($('#today-hot').hasClass('hidden'));
+        if ($('#today-hot').hasClass('hidden')) {
+            getHotAnswer();
+        } else {
+            getHotQuestion();
+        }
+
+    })
     var question_id = $(".recommend li").first().attr('data-id');
     getQuestionTopAnswer(question_id);
     getHotQuestion();
@@ -277,11 +295,13 @@ function getHotQuestion() {
         type: 'POST',
         dataType: 'json',
         data: {
-            skip: 0
+            skip: hot_question_count
         },
         success: function(results) {
-            console.log(results);
+            hot_question_count += page_count;
             $("#today-hot ul").append(hot_template(results));
+            once = true;
+            $(window).scroll(scrollHandler);
         },
         error: (function() {
             console.log('error');
@@ -290,16 +310,34 @@ function getHotQuestion() {
 
 }
 
+function scrollHandler() {
+    var pageH = $(document.body).height();
+    var scrollT = $(window).scrollTop(); //滚动条top   
+    var aa = (pageH - winH - scrollT) / winH;
+    if (aa < 0.02) { //0.02是个参数  
+
+        $(window).unbind('scroll');
+        if (once) {
+            once = false;
+            $('.load-more-button').trigger("click");
+        }
+
+    }
+}
+
 function getHotAnswer() {
     $.ajax({
         url: '/getHotAnswer',
         type: 'POST',
         dataType: 'json',
         data: {
-            skip: 0
+            skip: hot_answer_count
         },
         success: function(results) {
+            hot_answer_count += page_count;
             $("#month-hot ul").append(hot_template(results));
+            once = true;
+            $(window).scroll(scrollHandler);
         },
         error: (function() {
             console.log('error');

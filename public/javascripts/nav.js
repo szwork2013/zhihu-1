@@ -48,36 +48,34 @@ $(document).ready(function() {
 
     $("#submit_question").bind("click", function() {
         var question_title = $("#question-title").val();
-        var question_explain = JSON.stringify(quill.getContents());
-        var topicIds = new Array();
-        var hasChoiceTopicId = $("#choiced-topics").children('button');
-        for (var i = 0; i < hasChoiceTopicId.length; i++) {
-            var _id = $(hasChoiceTopicId[i]).attr("data-id");
-            topicIds[i] = _id;
-        }
+        var question_explain = $('.ql-editor').html();
+        /*        
+                获取怡经选择的话题id
+                var topicIds = new Array();
+                var hasChoiceTopicId = $("#choiced-topics").children('button');
+                for (var i = 0; i < hasChoiceTopicId.length; i++) {
+                    var _id = $(hasChoiceTopicId[i]).attr("data-id");
+                    topicIds[i] = _id;
+                }*/
         console.log(question_explain);
-        console.log(topicIds);
         console.log(question_title);
         $.ajax({
-                url: '/askQuestion',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    question_title: question_title,
-                    question_explain: question_explain,
-                    topicIds: topicIds
-                },
-            })
-            .done(function() {
-                console.log("success");
-            })
-            .fail(function() {
-                console.log("error");
-            })
-            .always(function() {
-                console.log("complete");
-            });
+            url: '/askQuestion',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                question_title: question_title,
+                question_explain: question_explain
+            },
+            success: function(result) {
+                if (result.code==10000) {
+                    window.location = /question/+result.question_id;
+                }
+            },
+            error: function() {
 
+            }
+        });
     });
 
 
@@ -118,13 +116,12 @@ $(document).ready(function() {
     $("#user-info a").bind('click', function() {
         if ($(this).attr('data-option') == "signin") {
             $('#login-modal').modal('show');
-        } else {
+        } else if ($(this).attr('data-option') == "signup") {
             $('#register-modal').modal('show');
         }
     })
 
     $("#askQuestionButton").bind('click', function() {
-        console.log('fd')
         $.ajax({
                 url: '/user/isLogin',
                 type: 'POST',

@@ -11,10 +11,6 @@ var SITE_ROOT_URL = 'http://127.0.0.1:3000';
  * @param {Object} data 邮件对象
  */
 var sendMail = function(data) {
-    /*  if (config.debug) {
-        return;
-      }*/
-    // 遍历邮件数组，发送每一封邮件，如果有发送失败的，就再压入数组，同时触发mailEvent事件
     transporter.sendMail(data, function(err) {
         if (err) {
             logger.error(err);

@@ -9,6 +9,7 @@
     <title>知乎 - 与世界分享你的知识、经验和见解</title>
     <!-- Bootstrap -->
     <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet prefetch' href='/lib/quill/quill-1.13.snow.css'>
     <link rel="stylesheet" type="text/css" href="/stylesheets/nav.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/question.css">
     <style type="text/css">
@@ -30,13 +31,15 @@
                             </div>
                         </li>
                         <li class="list-group-item">
-                            <span class="lead title-detail"><%=question.title%></span>
+                            <a href="/question/<%=question._id%>" data-option="<%=question._id%>" class='question-title-detail'>
+                                <span class="title-detail"><%=question.title%></span>
+                            </a>
                             <br>
                             <span class="question-content"><small><%-question.content%></small>
                             </span>
                         </li>
                         <li class="list-group-item">
-                            <span><%=question.answer_count%>个回答</span>
+                            <span class="answer-count"><%=question.answer_count%>个回答</span>
                             <div class="dropdown pull-right">
                                 <button class="btn btn-default dropdown-toggle" style="padding: 0px 5px;" data-toggle="dropdown">
                                     默认排序<span class="glyphicon glyphicon-sort"></span>
@@ -74,7 +77,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="panel-body">
-                                                   <%-answer.content%>
+                                                    <%-answer.content%>
                                                 </div>
                                                 <div class="panel-footer">
                                                     <a href="#">发布于 2011-04-12</a>
@@ -88,6 +91,15 @@
                                 </li>
                                 <% }); %>
                         </ul>
+                    </div>
+                    <div class="answer-question" disabled="true">
+                        <div id="editor-container-question" class="editor-container">
+                        </div>
+                    </div>
+                    <div class="submit-answer">
+                        <button class="btn btn-primary btn-sm pull-right submit-answer-button" type="button">
+                            发布回答
+                        </button>
                     </div>
                 </div>
                 <div class="col-md-3 remove-padding">
@@ -138,7 +150,7 @@
         </div>
         <div id="example-popover-1-content" class="hidden">
             <div>
-                <b>Example popover #1</b> - content
+                <b>正在开发中 #1</b> - content
             </div>
         </div>
         <div id="example-popover-1-title" class="hidden">
@@ -146,7 +158,7 @@
         </div>
         <div id="example-popover-2-content" class="hidden">
             <div>
-                <b>Example popover #2</b> - content
+                <b>正在开发中 #2</b> - content
             </div>
         </div>
         <div id="example-popover-2-title" class="hidden">
@@ -154,7 +166,7 @@
         </div>
         <div id="example-popover-3-content" class="hidden">
             <div>
-                <b>Example popover #3</b> - content
+                <b>正在开发中 #3</b> - content
             </div>
         </div>
         <div id="example-popover-3-title" class="hidden">
@@ -173,6 +185,22 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
+    var placeholder;
+
+
+
+    (function() {
+
+        if (<%=!login%>) {
+            placeholder = '请先登录在回答问题';
+
+        } else {
+            placeholder = '请详细描述你的回答';
+
+        }
+
+    })();
+
 
     $.each($("#question-topic").children("a"), function(index, element) {
         var _id = $(element).attr("id");
@@ -189,10 +217,82 @@ $(document).ready(function() {
         });
     });
 
-    /*    $.each( children('#question-topic a'), function(index, element) {
-             console.log(element);
-        });*/
+    $(".submit-answer-button").bind('click', function() {
+        if (<%=!login%>) {
+            $('#register-modal').modal('hide');
+            $('#login-modal').modal('show');
 
+        } else {
+            var question_id = $(".question-title-detail").attr('data-option');
+            var answer_content = $('#editor-container-question').children('.ql-editor').html();
+            console.log(question_id,answer_content)
+            $.ajax({
+                url: '/submitAnswer',
+                type: 'POST',
+                dataType:'json',
+                data: {
+                    question_id: question_id,
+                    answer_content: answer_content
+                },
+                success: function(result) {
+                    if (result.code==10000) {
+                        window.location.reload();
+                    }
+                },
+                error: function() {
+
+                }
+            });
+        }
+
+    })
+
+
+
+
+
+    var quill = new Quill('#editor-container-question', {
+        modules: {
+            toolbar: [
+                ['bold', 'italic'],
+                ['link', 'blockquote', 'code-block', 'image'],
+                [{
+                    list: 'ordered'
+                }, {
+                    list: 'bullet'
+                }]
+            ]
+        },
+        placeholder: placeholder,
+        theme: 'snow',
+        readOnly: <%=!login%>,
+        imageHandler: function(image, callback) {
+
+            var data = new FormData();
+            data.append('image', image);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', "/uploadFile", true);
+
+            xhr.onload = function(oEvent) {
+                if (xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    console.log("return response:" + response);
+                    callback(response.link);
+                } else {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        callback(e.target.result);
+                    };
+                    reader.readAsDataURL(image);
+
+                }
+            };
+            xhr.send(data);
+
+        }
+    });
+    console.log(quill)
 });
 </script>
 

@@ -61,7 +61,7 @@ exports.findRandomQuestion = function(callback) {
 exports.getHotQuestion = function(skip, _callback) {
 
 
-    QuestionModel.find({}).skip(skip).limit(5).sort('-visit').exec(function(err, questions) {
+    QuestionModel.find({}).limit(5).skip(skip).sort('-visit').exec(function(err, questions) {
         if (err) {
             return _callback(err);
         }
@@ -77,10 +77,11 @@ exports.getHotQuestion = function(skip, _callback) {
             var arrayObject = [];
             results.forEach(function(val, index) {
                 var object = {
+                    "question_id": val.question._id,
                     "question_title": val.question.title,
-                    "author_name": val.answer.author.nickname,
-                    "author_signature": val.answer.author.signature,
-                    "answer_content": delHtmlTag(val.answer.content).substring(0,200),
+                    "author_name": val.answer.author == null ? "匿名用户" : val.answer.author.nickname,
+                    "author_signature": val.answer.author == null ? "无实力愤怒毫无意义" : val.answer.author.signature,
+                    "answer_content": delHtmlTag(val.answer.content).substring(0, 200),
                     "answer_vote_up": val.answer.vote_up_count
                 }
                 arrayObject.push(object);
@@ -103,11 +104,12 @@ exports.getHotAnswer = function(skip, callback) {
             answers.forEach(function(val, index) {
 
                 var object = {
+                    "question_id": val.question._id,
                     "question_title": val.question.title,
-                    "author_name": val.author.nickname,
-                    "author_signature": val.author.signature,
+                    "author_name": val.author == null ? "匿名用户" : val.author.nickname,
+                    "author_signature": val.author.signature == null ? "无实力愤怒毫无意义" : val.author.signature,
                     // "answer_content": val.content.substring(0, 50),
-                    "answer_content": delHtmlTag(val.content).substring(0,200),
+                    "answer_content": delHtmlTag(val.content).substring(0, 200),
                     "answer_vote_up": val.vote_up_count
                 }
                 arrayObject.push(object);
