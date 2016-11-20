@@ -1,4 +1,4 @@
-var config = require('../config');
+/*var config = require('../config');
 
 var env = process.env.NODE_ENV || "development"
 var log4js = require('log4js');
@@ -24,3 +24,4 @@ exports.logger = function(name) {
     logger.setLevel(level);
     return logger;
 }
+*/

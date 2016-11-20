@@ -31,12 +31,16 @@ exports.findByEmail = function(email, callback) {
 exports.activeUserById = function(id, accessToken, callback) {
         UserModel.findById(id, function(err, user) {
             if (err) return callback(err);
-            if (user.accessToken == accessToken) {
-                exports.updateUserByID(id, { active: true }, function(err) {
-                    if (err) return callback(err);
-                    callback(null, user);
-                })
-            };
+            if (user) {
+                if (user.accessToken == accessToken) {
+                    exports.updateUserByID(id, { active: true }, function(err) {
+                        if (err) return callback(err);
+                        callback(null, user);
+                    })
+                };
+            }else{
+                callback(new Error('no user'));
+            }
 
 
         });
@@ -148,7 +152,6 @@ exports.getQuestionAndAnswerById = function(question_id, callback) {
                     question: question,
                     answers: answers
                 }
-                console.log(result);
                 callback(null, result);
 
             })

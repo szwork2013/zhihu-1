@@ -6,7 +6,6 @@ var _ = require('lodash');
 exports.queryTopic = function(req, res, next) {
 
 	var query_word = req.body.query_word;
-	console.log('query_word:'+query_word);
 	Topic.findTopicByName(query_word,function (err,topics) {
 		if(err) return next(err);
 		res.json(topics);

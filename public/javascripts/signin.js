@@ -18,7 +18,7 @@ $(document).ready(function() {
                 var msg = "<code>" + res.msg + "</code>";
                 if (res.code == 10000) {
                     window.location = '/explore';
-                } else if (res.code == 10006) {
+                } else if (res.code == 10006||res.code==10002) {
                     $("#email").attr("data-content", msg);
                     $('#email').popover('show');
                 } else {

@@ -1,6 +1,6 @@
-var User = require('../proxy').User; //proxy user里面完成具体的业务
-var Question = require('../proxy').Question; //proxy user里面完成具体的业务
-var Answer = require('../proxy').Answer; //proxy user里面完成具体的业务
+var User = require('../proxy').User;
+var Question = require('../proxy').Question;
+var Answer = require('../proxy').Answer;
 var tools = require('../common/tools');
 var config = require('../config');
 var mailer = require('../common/email');
@@ -35,25 +35,30 @@ exports.login = function(req, res, next) {
         password: req.body.password,
         remberme: req.body.remberme
     }
-
     User.findByEmail(userLogin.email, function(err, user) {
         if (!user) {
             return res.json({ code: 10006, msg: "用户不存在" })
         } else {
-            tools.bcompare(userLogin.password, user.password, function(err, isMatch) {
-                if (isMatch) {
-                    if (userLogin.remberme) {
-                        res.cookie('user_cookie', userLogin, { maxAge: 7 * 1000 * 60 * 60 * 24, httpOnly: true });
+            if (user.active) {
+                tools.bcompare(userLogin.password, user.password, function(err, isMatch) {
+                    if (isMatch) {
+                        if (userLogin.remberme) {
+                            res.cookie('user_cookie', userLogin, { maxAge: 7 * 1000 * 60 * 60 * 24, httpOnly: true });
+                        }
+                        req.session.login = true;
+                        req.session.user = user; //用户信息放入session中
+                        res.json({ code: 10000, msg: "登录成功" });
+
+                    } else {
+                        return res.json({ code: 10001, msg: "密码不正确" })
                     }
-                    req.session.user = user; //用户信息放入session中
-                    res.json({ code: 10000, msg: "登录成功" });
 
-                } else {
-                    return res.json({ code: 10001, msg: "密码不正确" })
-                }
-
-            })
+                })
+            } else {
+                return res.json({ code: 10012, msg: "请先激活账号" })
+            }
         }
+
     });
 }
 
@@ -68,7 +73,7 @@ exports.activeUser = function(req, res, next) {
             })
         } else {
             req.session.user = user; //用户的值放入session当中
-            app.session.active = true;
+            req.session.active = true;
             req.session.redirectToActive = true;
             res.redirect('/active');
         }
@@ -81,9 +86,9 @@ exports.register = function(req, res, next) {
     var user = {
         email: req.body.email,
         username: req.body.username,
-        nickname:req.body.username,
+        nickname: req.body.username,
         password: req.body.password,
-        avatar:'5a0af4e6cf5d34d05315ae8e53274ac2_l.jpg',//默认图像
+        avatar: '5a0af4e6cf5d34d05315ae8e53274ac2_l.jpg', //默认图像
         accessToken: sha1(Date.parse(new Date()))
     };
 
@@ -171,7 +176,6 @@ exports.explore = function(req, res, next) {
 
 exports.getHotQuestion = function(req, res, next) {
     var skip = parseInt(req.body.skip);
-    console.log(skip);
     User.getHotQuestion(skip, function(err, questions) {
         if (err) {
             return next(err)
@@ -211,7 +215,6 @@ exports.getQuestionAndAnswerById = function(req, res, next) {
                 return next(err)
             }
             if (result.question) {
-                console.log(result);
                 res.render('question', {
                     question: result.question,
                     answers: result.answers
@@ -238,14 +241,17 @@ exports.submitAnswer = function(req, res, next) {
     var question_id = req.body.question_id;
     var answer_content = req.body.answer_content;
     var user = req.session.user;
-        var answer = {
-            content: answer_content,
-            author: req.session.user._id,
-            question: question_id
+    var answer = {
+        content: answer_content,
+        author: req.session.user,
+        question: question_id
+    }
+    console.log(answer);
+    Answer.createAnswer(answer, function(err, answer) {
+        if (err) {
+            return next(err)
         }
-    Answer.createAnswer(answer,function (err,answer) {
-        if (err) {return next(err)}
-            res.json({code:10000,answer:answer});
+        res.json({ code: 10000, answer: answer });
     });
 
 }

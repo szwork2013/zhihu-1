@@ -70,6 +70,8 @@ $(document).ready(function() {
             success: function(result) {
                 if (result.code==10000) {
                     window.location = /question/+result.question_id;
+                }else{
+                    alert(result.msg);
                 }
             },
             error: function() {

@@ -8,24 +8,24 @@ var mongoose = require('mongoose');
 var session = require('express-session'); // session依赖cookie模块
 var mongoStore = require('connect-mongo')(session); // 对session进行持久化
 var fileUpload = require('express-fileupload');
-var log4js = require('log4js');
+var logger = require('morgan');
 var routes = require('./routes/index');
 var config = require('./config');
-var logger = require('./common/logger').logger('normal');
+var compress = require('compression');
+var fs = require('fs');
 
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('.html', require('ejs').__express);
-
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(log4js.connectLogger(logger,{ format:':method :url :status'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-
+app.use(compress());
+app.use(logger('short'));
 app.use(cookieParser(config.session_secret));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
