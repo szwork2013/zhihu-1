@@ -262,5 +262,6 @@ exports.logout = function(req, res, next) {
     req.session.email = null;
     redirectToActive = null;
     req.session.user = null;
+    req.session.login = null;
     res.redirect('/explore');
 }
